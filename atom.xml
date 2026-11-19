@@ -10,7 +10,19 @@
   
   <subtitle>just try it</subtitle>
   <title>OS-learning</title>
-  <updated>2026-11-19T08:05:00.000Z</updated>
+  <updated>2026-11-19T14:23:46.000Z</updated>
+  <entry>
+    <author>
+      <name>lzh</name>
+    </author>
+    <category term="GitHub 周榜" scheme="https://oslearning.cn/categories/GitHub-%E5%91%A8%E6%A6%9C/"/>
+    <id>https://oslearning.cn/briefs/github-weekly/2026-11-19-weekly/</id>
+    <link href="https://oslearning.cn/briefs/github-weekly/2026-11-19-weekly/"/>
+    <published>2026-11-19T14:23:46.000Z</published>
+    <summary type="text">本期样本中，浏览器诊断、前端设计与办公编辑占据了几个位置：既有为代理补充Web知识的指南，也有组件系统、办公SDK和浏览器检查工具。代码审查、计划批注与事件协议关注代理如何接入工作流程；另介绍本地视频处理和财务资料工具，后者只讨论功能与边界，不作投资或收益推荐。；采集截止（北京时间）：2026-11-19 21:23；本期来源覆盖完整；网页归档不代表独立事实核查或效果、安全、兼容性验证。</summary>
+    <title>GitHub 周榜｜2026年11月19日</title>
+    <updated>2026-11-19T14:23:46.000Z</updated>
+  </entry>
   <entry>
     <author>
       <name>lzh</name>

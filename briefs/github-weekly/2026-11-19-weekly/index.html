@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#458684" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#458684">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"oslearning.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="本期样本中，浏览器诊断、前端设计与办公编辑占据了几个位置：既有为代理补充Web知识的指南，也有组件系统、办公SDK和浏览器检查工具。代码审查、计划批注与事件协议关注代理如何接入工作流程；另介绍本地视频处理和财务资料工具，后者只讨论功能与边界，不作投资或收益推荐。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitHub 周榜｜2026年11月19日">
+<meta property="og:url" content="https://oslearning.cn/briefs/github-weekly/2026-11-19-weekly/index.html">
+<meta property="og:site_name" content="OS-learning">
+<meta property="og:description" content="本期样本中，浏览器诊断、前端设计与办公编辑占据了几个位置：既有为代理补充Web知识的指南，也有组件系统、办公SDK和浏览器检查工具。代码审查、计划批注与事件协议关注代理如何接入工作流程；另介绍本地视频处理和财务资料工具，后者只讨论功能与边界，不作投资或收益推荐。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-11-19T14:23:46.000Z">
+<meta property="article:modified_time" content="2026-11-19T14:23:46.000Z">
+<meta property="article:author" content="lzh">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://oslearning.cn/briefs/github-weekly/2026-11-19-weekly/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://oslearning.cn/briefs/github-weekly/2026-11-19-weekly/","path":"/briefs/github-weekly/2026-11-19-weekly/","title":"GitHub 周榜｜2026年11月19日"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>GitHub 周榜｜2026年11月19日 | OS-learning</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="OS-learning" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">OS-learning</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">just try it</p>
+  </div>
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">4</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">8</span></a></li><li class="menu-item menu-item-简报中心"><a href="/briefs/" rel="section"><i class="fa fa-newspaper fa-fw"></i>简报中心</a></li><li class="menu-item menu-item-订阅"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>订阅</a></li><li class="menu-item menu-item-本地阅读"><a href="/reading/" rel="section"><i class="fa fa-bookmark fa-fw"></i>本地阅读</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E6%A6%82%E8%A7%88"><span class="nav-text">项目概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D"><span class="nav-text">项目介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GoogleChrome-x2F-modern-web-guidance-src"><span class="nav-text">GoogleChrome&#x2F;modern-web-guidance-src</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dream-num-x2F-univer"><span class="nav-text">dream-num&#x2F;univer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#meta-x2F-astryx"><span class="nav-text">meta&#x2F;astryx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#alibaba-x2F-open-code-review"><span class="nav-text">alibaba&#x2F;open-code-review</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#we-promise-x2F-sure"><span class="nav-text">we-promise&#x2F;sure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#backnotprop-x2F-plannotator"><span class="nav-text">backnotprop&#x2F;plannotator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tradermonty-x2F-claude-trading-skills"><span class="nav-text">tradermonty&#x2F;claude-trading-skills</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ag-ui-protocol-x2F-ag-ui"><span class="nav-text">ag-ui-protocol&#x2F;ag-ui</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ChromeDevTools-x2F-chrome-devtools-mcp"><span class="nav-text">ChromeDevTools&#x2F;chrome-devtools-mcp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kajisho5-x2F-ffmpeg-skill"><span class="nav-text">kajisho5&#x2F;ffmpeg-skill</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%85%E8%A6%81%E8%AF%B4%E6%98%8E"><span class="nav-text">必要说明</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lzh"
+      src="/picture/avatar.jpg">
+  <p class="site-author-name" itemprop="name">lzh</p>
+  <div class="site-description" itemprop="description">self blog</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/oslearn" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;oslearn" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://oslearning.cn/briefs/github-weekly/2026-11-19-weekly/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/picture/avatar.jpg">
+      <meta itemprop="name" content="lzh">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="OS-learning">
+      <meta itemprop="description" content="self blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="GitHub 周榜｜2026年11月19日 | OS-learning">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          GitHub 周榜｜2026年11月19日
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-11-19 22:23:46" itemprop="dateCreated datePublished" datetime="2026-11-19T22:23:46+08:00">2026-11-19 22:23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-19 22:23:46" itemprop="dateModified" datetime="2026-11-19T22:23:46+08:00">2026-11-19 22:23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/GitHub-%E5%91%A8%E6%A6%9C/" itemprop="url" rel="index"><span itemprop="name">GitHub 周榜</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>本期样本中，浏览器诊断、前端设计与办公编辑占据了几个位置：既有为代理补充Web知识的指南，也有组件系统、办公SDK和浏览器检查工具。代码审查、计划批注与事件协议关注代理如何接入工作流程；另介绍本地视频处理和财务资料工具，后者只讨论功能与边界，不作投资或收益推荐。</p>
+<span id="more"></span>
+
+<h2 id="项目概览"><a href="#项目概览" class="headerlink" title="项目概览"></a>项目概览</h2><table>
+<thead>
+<tr>
+<th>项目</th>
+<th align="right">本周新增 Star</th>
+<th align="right">当前 Star</th>
+<th>语言</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/GoogleChrome/modern-web-guidance-src">GoogleChrome&#x2F;modern-web-guidance-src</a></td>
+<td align="right">7,257</td>
+<td align="right">9,012</td>
+<td>TypeScript</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/dream-num/univer">dream-num&#x2F;univer</a></td>
+<td align="right">6,840</td>
+<td align="right">30,405</td>
+<td>TypeScript</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/meta/astryx">meta&#x2F;astryx</a></td>
+<td align="right">6,250</td>
+<td align="right">30,793</td>
+<td>TypeScript</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/alibaba/open-code-review">alibaba&#x2F;open-code-review</a></td>
+<td align="right">4,383</td>
+<td align="right">54,309</td>
+<td>Go</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/we-promise/sure">we-promise&#x2F;sure</a></td>
+<td align="right">3,866</td>
+<td align="right">16,620</td>
+<td>Ruby</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/backnotprop/plannotator">backnotprop&#x2F;plannotator</a></td>
+<td align="right">3,290</td>
+<td align="right">13,584</td>
+<td>TypeScript</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/tradermonty/claude-trading-skills">tradermonty&#x2F;claude-trading-skills</a></td>
+<td align="right">3,242</td>
+<td align="right">7,171</td>
+<td>Python</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/ag-ui-protocol/ag-ui">ag-ui-protocol&#x2F;ag-ui</a></td>
+<td align="right">3,221</td>
+<td align="right">20,562</td>
+<td>TypeScript</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/ChromeDevTools/chrome-devtools-mcp">ChromeDevTools&#x2F;chrome-devtools-mcp</a></td>
+<td align="right">3,143</td>
+<td align="right">58,304</td>
+<td>TypeScript</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/kajisho5/ffmpeg-skill">kajisho5&#x2F;ffmpeg-skill</a></td>
+<td align="right">2,894</td>
+<td align="right">8,161</td>
+<td>Python</td>
+</tr>
+</tbody></table>
+<h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><h3 id="GoogleChrome-x2F-modern-web-guidance-src"><a href="#GoogleChrome-x2F-modern-web-guidance-src" class="headerlink" title="GoogleChrome&#x2F;modern-web-guidance-src"></a><a target="_blank" rel="noopener" href="https://github.com/GoogleChrome/modern-web-guidance-src">GoogleChrome&#x2F;modern-web-guidance-src</a></h3><p>Modern Web Guidance把浏览器能力、兼容性资料与现代Web写法整理为编码代理可检索的指南。这个仓库负责指南的编写、校准和评估，适合让代理在改前端代码前查明原生能力与必要回退，而不是不断补旧式脚本。</p>
+<p><strong>主要功能</strong></p>
+<ul>
+<li>按任务检索指南，并扫描代码中的旧式实现</li>
+<li>结合浏览器支持情况选择渐进增强与轻量回退</li>
+<li>对实验性或尚不稳定的特性设置采用门槛</li>
+</ul>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>前端代码现代化与兼容性评审</li>
+<li>给编码代理补充具体Web平台知识</li>
+</ul>
+<p><strong>前提与限制</strong>：需要支持本地命令的编码代理和相应Node工具链。文档说明默认采集检索等遥测，可退出；源码与指南采用不同许可。这里只读了功能、采用门槛、隐私和许可段落，未验证评估成绩。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/GoogleChrome/modern-web-guidance-src/blob/e8feb43e0e61c791f905904222492bf2e4e573fe/README.md">已读 README</a></p>
+<h3 id="dream-num-x2F-univer"><a href="#dream-num-x2F-univer" class="headerlink" title="dream-num&#x2F;univer"></a><a target="_blank" rel="noopener" href="https://github.com/dream-num/univer">dream-num&#x2F;univer</a></h3><p>Univer提供嵌入产品的办公编辑基础，让网页应用处理表格和富文本文档，并通过同一套内容模型与命令接口连接业务系统或既有代理。本仓库是其中的开源Web核心，不应把整套商业Office SDK展示的能力都算进默认安装。</p>
+<p><strong>主要功能</strong></p>
+<ul>
+<li>表格编辑、公式计算、筛选、排序与数据校验</li>
+<li>富文本编辑及插件化命令、撤销重做</li>
+<li>通过Facade接口和内容快照连接业务应用或无界面处理</li>
+</ul>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>在业务系统嵌入表格或文档编辑器</li>
+<li>将代理操作接入可审阅的办公内容工作流</li>
+</ul>
+<p><strong>前提与限制</strong>：需前端集成和权限设计。协作后端、文件交换及部分AI扩展单独分发和授权，试用可能有限制；运行时需注意Intl.Segmenter等兼容条件。本次只读核心范围、能力、许可与运行条件，未测试商业组件。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/dream-num/univer/blob/4bb7117487b9c48a98bf28108d61cfee7d0b4dc9/README.md">已读 README</a></p>
+<h3 id="meta-x2F-astryx"><a href="#meta-x2F-astryx" class="headerlink" title="meta&#x2F;astryx"></a><a target="_blank" rel="noopener" href="https://github.com/meta/astryx">meta&#x2F;astryx</a></h3><p>Astryx是一套React设计系统，把组件、主题、模板、文档和CLI放在一起，供开发者与编码代理用同一套接口搭建界面。它强调开放组件内部结构、通过CSS变量改品牌主题，以及在需要时把组件源码移入项目自行维护。</p>
+<p><strong>主要功能</strong></p>
+<ul>
+<li>提供可组合组件、主题和深浅色样式</li>
+<li>以CSS变量及现有样式方式调整界面外观</li>
+<li>通过CLI与文档为人和代理提供一致的组件用法</li>
+</ul>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>统一产品界面与品牌主题</li>
+<li>让编码代理按已有设计系统生成页面</li>
+</ul>
+<p><strong>前提与限制</strong>：文档标为Beta，需要React 19或更新版本及相应依赖。源码自定义后需承担维护工作；组件可访问性属于项目方说明，本次未独立验证。已读概览与安装说明，未逐个审阅组件实现。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/meta/astryx/blob/dcdd9faca6a56abc05fe17079549dda811ba287a/README.md">已读 README</a></p>
+<h3 id="alibaba-x2F-open-code-review"><a href="#alibaba-x2F-open-code-review" class="headerlink" title="alibaba&#x2F;open-code-review"></a><a target="_blank" rel="noopener" href="https://github.com/alibaba/open-code-review">alibaba&#x2F;open-code-review</a></h3><p>Open Code Review面向代码审查：根据Git差异或指定文件确定审阅范围，组织相关上下文和规则，再输出定位到代码行的结构化意见。除由工具自行调用模型外，它还提供宿主代理完成审阅的模式，可复用环境中的模型与认证。</p>
+<p><strong>主要功能</strong></p>
+<ul>
+<li>审阅工作区、分支、提交差异或完整文件</li>
+<li>组织关联文件与适用规则，生成结构化审查意见</li>
+<li>在独立模型模式与宿主代理审阅模式之间选择</li>
+</ul>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>提交前检查和变更评审</li>
+<li>对陌生代码库进行定向扫描</li>
+</ul>
+<p><strong>前提与限制</strong>：需Git及ocr工具。原生模式另需模型配置，宿主模式也受环境权限与用量限制；代码可能进入模型上下文，使用前应核对外发范围。只读功能、设计、前提和模式说明，未验证其基准或缺陷检出率。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/alibaba/open-code-review/blob/a74bcbbd4975eb3a92493d5eb537cf276d79b322/README.md">已读 README</a></p>
+<h3 id="we-promise-x2F-sure"><a href="#we-promise-x2F-sure" class="headerlink" title="we-promise&#x2F;sure"></a><a target="_blank" rel="noopener" href="https://github.com/we-promise/sure">we-promise&#x2F;sure</a></h3><p>Sure是Maybe Finance的社区维护分支，提供可自托管的个人财务管理应用。读者可把它理解为集中管理财务资料的应用入口，而不是自动替人作投资决策的系统；仓库介绍了浏览器、客户端、API和代理访问方式。</p>
+<p><strong>主要功能</strong></p>
+<ul>
+<li>以Docker自托管个人财务应用</li>
+<li>通过浏览器、客户端或API访问应用</li>
+<li>提供不启用AI和接入AI服务的不同部署配置</li>
+</ul>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>在自己管理的环境集中处理财务资料</li>
+<li>扩展个人财务应用与数据访问入口</li>
+</ul>
+<p><strong>前提与限制</strong>：财务资料敏感，需自行保护访问权限、数据库和备份；AI配置可能带来数据外发和费用。项目采用AGPLv3，服务部署成本另计；文档承认存在性能问题。本次读了README，未审计具体银行同步或安全实现。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/we-promise/sure/blob/1a0a4864151500ba9b55ce228586b02815439237/README.md">已读 README</a></p>
+<h3 id="backnotprop-x2F-plannotator"><a href="#backnotprop-x2F-plannotator" class="headerlink" title="backnotprop&#x2F;plannotator"></a><a target="_blank" rel="noopener" href="https://github.com/backnotprop/plannotator">backnotprop&#x2F;plannotator</a></h3><p>Plannotator为编码代理提供本地浏览器审阅界面：用户能批注计划、文档、页面和代码差异，再把反馈送回发起任务的代理。Inbox把多个会话的待决问题与文件集中起来，适合需要人保留关键判断的协作流程。</p>
+<p><strong>主要功能</strong></p>
+<ul>
+<li>批注文档、计划、HTML与代码差异并回传反馈</li>
+<li>将较大变更组织为便于阅读的审阅章节</li>
+<li>以Inbox集中处理多个代理会话留下的问题和文件</li>
+</ul>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>在代理继续编码前审阅重要方案</li>
+<li>管理多会话反馈与较大变更评审</li>
+</ul>
+<p><strong>前提与限制</strong>：需对应插件、钩子或MCP连接，平台支持有差异；安装及可选AI功能会涉及外部服务。分享完整链接的持有者可读内容，大分享可能上传，因此不宜直接分享敏感代码。本次仅审阅README功能、安装和分享说明。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/backnotprop/plannotator/blob/887b9b877c7895541b1c4afe382e2c0366fa20de/README.md">已读 README</a></p>
+<h3 id="tradermonty-x2F-claude-trading-skills"><a href="#tradermonty-x2F-claude-trading-skills" class="headerlink" title="tradermonty&#x2F;claude-trading-skills"></a><a target="_blank" rel="noopener" href="https://github.com/tradermonty/claude-trading-skills">tradermonty&#x2F;claude-trading-skills</a></h3><p>Claude Trading Skills把市场回顾、风险检查、计划、记录和复盘组织为技能与工作流，侧重帮助使用者形成可追踪的研究过程。作者明确说明它不是信号服务或经纪商执行平台，也不是把买卖决策交给AI的自动交易系统。</p>
+<p><strong>主要功能</strong></p>
+<ul>
+<li>按工作流组织市场回顾和组合研究</li>
+<li>把风险检查、计划与交易记录串成流程</li>
+<li>提供示例产物及无需付费数据API的基础路径</li>
+</ul>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>整理教育性市场研究和复盘资料</li>
+<li>对研究流程的输入、判断关口与记录方式进行检查</li>
+</ul>
+<p><strong>前提与限制</strong>：仅作教育、研究与流程整理，不是投资建议或收益保证；某些流程需Alpaca或FMP等数据接口，可能有费用并涉及账户资料。工具输出不能替代独立判断。本次只读定位、免责声明、流程表和起步说明，未验证策略或回测。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/tradermonty/claude-trading-skills/blob/6b2018ec818969d077d69658b9196a5bc38cf273/README.md">已读 README</a></p>
+<h3 id="ag-ui-protocol-x2F-ag-ui"><a href="#ag-ui-protocol-x2F-ag-ui" class="headerlink" title="ag-ui-protocol&#x2F;ag-ui"></a><a target="_blank" rel="noopener" href="https://github.com/ag-ui-protocol/ag-ui">ag-ui-protocol&#x2F;ag-ui</a></h3><p>AG-UI用事件协议连接代理与面向用户的应用，把流式文本、工具调用、共享状态和需要用户参与的过程放到一致的数据通道中。它用于减少不同代理框架和前端之间的重复接线，不是独立的大模型服务。</p>
+<p><strong>主要功能</strong></p>
+<ul>
+<li>以类型化事件传输代理执行过程与流式输出</li>
+<li>支持应用与代理之间的双向状态交换</li>
+<li>提供SDK及应用脚手架作为接入入口</li>
+</ul>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>给已有代理增加Web或其他客户端界面</li>
+<li>统一不同框架的工具调用与交互状态展示</li>
+</ul>
+<p><strong>前提与限制</strong>：仍需应用端、代理端及各自认证和权限设计；示例模板可能调用外部模型服务并产生费用，协议本身不等于提供模型。本次读了协议定位和快速起步段，未核验全部集成及兼容性宣称。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ag-ui-protocol/ag-ui/blob/3416b86da4b3288e87f827c7f2759a7fa18b5231/README.md">已读 README</a></p>
+<h3 id="ChromeDevTools-x2F-chrome-devtools-mcp"><a href="#ChromeDevTools-x2F-chrome-devtools-mcp" class="headerlink" title="ChromeDevTools&#x2F;chrome-devtools-mcp"></a><a target="_blank" rel="noopener" href="https://github.com/ChromeDevTools/chrome-devtools-mcp">ChromeDevTools&#x2F;chrome-devtools-mcp</a></h3><p>Chrome DevTools MCP把浏览器开发工具的检查能力提供给编码代理，支持观察页面、网络请求、控制台消息和性能轨迹，并通过自动化操作复现交互问题。适合把代理的推测与真实浏览器现象联系起来。</p>
+<p><strong>主要功能</strong></p>
+<ul>
+<li>读取网络与控制台信息并辅助定位页面异常</li>
+<li>记录性能轨迹并整理诊断线索</li>
+<li>自动化浏览器操作、截图和交互检查</li>
+</ul>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>复现前端故障与排查性能问题</li>
+<li>让代理检查网页实际交互而不只阅读代码</li>
+</ul>
+<p><strong>前提与限制</strong>：需Node运行时、Chrome及MCP或CLI接入。它可暴露浏览器内容与登录态，应使用受控测试环境；默认遥测及性能接口可能外发信息，文档提供关闭选项。本次读了功能、隐私和运行条件，未连接真实浏览器测试。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/8288d3549e39168448bae036c536fd8035ece0c9/README.md">已读 README</a></p>
+<h3 id="kajisho5-x2F-ffmpeg-skill"><a href="#kajisho5-x2F-ffmpeg-skill" class="headerlink" title="kajisho5&#x2F;ffmpeg-skill"></a><a target="_blank" rel="noopener" href="https://github.com/kajisho5/ffmpeg-skill">kajisho5&#x2F;ffmpeg-skill</a></h3><p>ffmpeg-skill把本地音视频编辑整理成代理可调用的工具与流程：先检查素材，再剪辑、拼接、调整画面或音频，最后验证导出文件。它支持Skill与MCP入口，适合不希望上传素材的批处理任务，但文件检查不等于主观质量评审。</p>
+<p><strong>主要功能</strong></p>
+<ul>
+<li>剪切、拼接、比例调整与音频响度处理</li>
+<li>组织字幕、叠加元素及批量编辑任务</li>
+<li>探测环境能力并检查输出媒体参数</li>
+</ul>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>在本地批量整理音视频素材</li>
+<li>让代理按可复核流程处理短视频交付</li>
+</ul>
+<p><strong>前提与限制</strong>：需本机FFmpeg、ffprobe和Python，具体能力取决于构建组件及额外工具。涉及写入和覆盖媒体文件，需隔离原件并检查结果；演示和验证能力属于项目方说明。本次读了概述和主要工具清单，未核验每个工具或视觉质量。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/kajisho5/ffmpeg-skill/blob/5055a42e1cc3c9443cab74313814325de3022ee8/README.md">已读 README</a></p>
+<h2 id="必要说明"><a href="#必要说明" class="headerlink" title="必要说明"></a>必要说明</h2><ul>
+<li>采集截止（北京时间）：2026年11月19日 21:23。</li>
+<li>来源与覆盖：<a target="_blank" rel="noopener" href="https://github.com/trending?since=weekly">GitHub 官方 Trending weekly</a>与官方仓库 API；仅对当前入榜样本按 stars this week 排序，不是全站净增榜，也不是指定历史周统计。</li>
+<li>README 功能与性能属于项目方描述；本期未安装、未运行，不代表独立的效果、安全或兼容性验证。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div class="reading-tools" data-reading-url="/briefs/github-weekly/2026-11-19-weekly/" data-reading-title="GitHub 周榜｜2026年11月19日">
+      <button type="button" data-reading-save aria-pressed="false">加入稍后阅读</button><button type="button" data-reading-read aria-pressed="false">标记已读</button><a href="/reading/">我的阅读清单</a>
+      <span class="reading-tool-status" role="status" aria-live="polite"></span></div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/briefs/skill-radar/2026-11-19-daily/" rel="next" title="Skill 雷达｜2026年11月19日">
+                  Skill 雷达｜2026年11月19日 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2023 – 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lzh</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="/lib/animejs/anime.min.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark-safe.js"></script>
+
+  <script src="/js/local-search-safe.js"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+<script src="/js/site-experience.js" defer></script>
+<script src="/js/reading-list.js" defer></script>
+
+</body>
+</html>
