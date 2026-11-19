@@ -26,26 +26,43 @@
   function empty() { return { schema_version: 1, entries: [] }; }
   class Store {
     constructor(storageFactory = () => global.localStorage, now = () => Date.now()) {
-      this.storageFactory = storageFactory; this.now = now; this.storage = null; this.data = empty(); this.warning = '';
+      this.storageFactory = storageFactory; this.now = now; this.storage = null; this.data = empty(); this.warning = ''; this.dirty = false;
       try { this.storage = storageFactory(); const text = this.storage.getItem(KEY); if (text !== null) this.data = parseBackup(text); }
       catch { this.storage = null; this.warning = '本机存储不可用或记录格式异常；本页仅临时保存状态，切换或关闭页面会丢失。'; }
     }
+    refresh() {
+      // Never discard unsaved changes or revive storage denied during initialization.
+      if (!this.storage || this.dirty) return false;
+      try {
+        const raw = this.storage.getItem(KEY), latest = raw === null ? empty() : parseBackup(raw);
+        const changed = JSON.stringify(latest) !== JSON.stringify(this.data);
+        this.data = latest; this.warning = ''; return changed;
+      } catch {
+        this.warning = '无法读取最新本机记录或记录格式异常；当前页状态已保留，请导出备份。';
+        return false;
+      }
+    }
     find(url) { return this.data.entries.find(entry => entry.url === url) || { url, saved: false, read: false, changed_at: 0 }; }
     write() {
-      try { if (!this.storage) throw new Error('Storage unavailable'); this.storage.setItem(KEY, JSON.stringify(this.data)); this.warning = ''; return true; }
-      catch { this.warning = '无法写入本机存储；本次状态仅在当前页有效，请导出备份。'; return false; }
+      try { if (!this.storage) throw new Error('Storage unavailable'); this.storage.setItem(KEY, JSON.stringify(this.data)); this.warning = ''; this.dirty = false; return true; }
+      catch { this.dirty = true; this.warning = '无法写入本机存储；本次状态仅在当前页有效，请导出备份。'; return false; }
     }
     set(url, flag, value) {
       if (!safePath(url) || !['saved', 'read'].includes(flag) || typeof value !== 'boolean') throw new Error('无效阅读操作。');
+      this.refresh();
       const previous = this.find(url), next = { ...previous, [flag]: value, changed_at: this.now() };
       const entries = this.data.entries.filter(entry => entry.url !== url);
       if (next.saved || next.read) entries.push(next);
       this.data = validate({ schema_version: 1, entries }); this.write();
     }
-    remove(url) { this.data.entries = this.data.entries.filter(entry => entry.url !== url); this.write(); }
+    toggle(url, flag) {
+      this.refresh(); this.set(url, flag, !this.find(url)[flag]);
+    }
+    remove(url) { this.refresh(); this.data.entries = this.data.entries.filter(entry => entry.url !== url); this.write(); }
     export() { return JSON.stringify(validate(this.data), null, 2) + '\n'; }
     merge(text, knownURLs) {
-      const incoming = parseBackup(text), current = new Set(this.data.entries.map(entry => entry.url));
+      const incoming = parseBackup(text); this.refresh();
+      const current = new Set(this.data.entries.map(entry => entry.url));
       const entries = [...this.data.entries]; let added = 0, preserved = 0, skipped = 0;
       for (const entry of incoming.entries) {
         if (!knownURLs.has(entry.url)) { skipped++; continue; }
@@ -59,8 +76,8 @@
     }
     clear() {
       this.data = empty();
-      try { if (!this.storage) this.storage = this.storageFactory(); this.storage.removeItem(KEY); this.warning = ''; }
-      catch { this.storage = null; this.warning = '本机存储不可用；已清空当前页的临时记录。'; }
+      try { if (!this.storage) this.storage = this.storageFactory(); this.storage.removeItem(KEY); this.warning = ''; this.dirty = false; }
+      catch { this.storage = null; this.dirty = true; this.warning = '本机存储不可用；已清空当前页的临时记录。'; }
     }
   }
   function parseCatalog(xml) {
@@ -121,7 +138,7 @@
     for (const tool of tools) {
       for (const flag of ['saved', 'read']) {
         tool.querySelector(flag === 'saved' ? '[data-reading-save]' : '[data-reading-read]').addEventListener('click', () => {
-          try { const url = tool.dataset.readingUrl; store.set(url, flag, !store.find(url)[flag]); render(); announce('已更新本机阅读状态。'); }
+          try { const url = tool.dataset.readingUrl; store.toggle(url, flag); render(); announce('已更新本机阅读状态。'); }
           catch (error) { announce(error.message); }
         });
       }
@@ -133,7 +150,7 @@
         const button = event.target.closest('button[data-reading-action]'); if (!button) return;
         const action = button.dataset.readingAction, url = button.dataset.readingUrl;
         try {
-          if (action === 'remove') store.remove(url); else store.set(url, action, !store.find(url)[action]);
+          if (action === 'remove') store.remove(url); else store.toggle(url, action);
           render(); announce('已更新本机阅读状态。');
           const next = [...page.querySelectorAll('[data-reading-action]')].find(b => b.dataset.readingUrl === url && b.dataset.readingAction === action);
           (next || page.querySelector('[data-reading-filter][aria-pressed="true"]')).focus();
@@ -175,11 +192,22 @@
       }
       loadCatalog();
     }
+    function reconcile() {
+      const warning = store.warning;
+      // Event payloads can be older than the current shared snapshot.
+      if (store.refresh()) { render(); announce('已同步本浏览器其他标签页的阅读状态。'); }
+      else if (store.warning && store.warning !== warning) announce('阅读清单提示：');
+    }
     global.addEventListener('storage', event => {
-      if (event.key !== KEY) return;
-      try { store.data = event.newValue === null ? empty() : parseBackup(event.newValue); render(); announce('已同步本浏览器其他标签页的阅读状态。'); } catch { announce('其他标签页的记录格式异常，当前状态未覆盖。'); }
+      if ((event.key === KEY || event.key === null) && event.storageArea === store.storage) reconcile();
     });
-    render(); if (store.warning) announce('阅读清单提示：');
+    global.addEventListener('focus', reconcile);
+    global.addEventListener('pageshow', reconcile);
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') reconcile();
+    });
+    render(); tools.forEach(tool => { tool.dataset.readingReady = 'true'; });
+    if (store.warning) announce('阅读清单提示：');
   }
   const api = { KEY, MAX_ENTRIES, MAX_BYTES, safePath, validate, parseBackup, Store, parseCatalog, mount };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
