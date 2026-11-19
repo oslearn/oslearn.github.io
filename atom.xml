@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <author>
+    <name>lzh</name>
+  </author>
+  <generator uri="https://hexo.io/">Hexo</generator>
+  <id>https://oslearning.cn/</id>
+  <link href="https://oslearning.cn/" rel="alternate"/>
+  <link href="https://oslearning.cn/atom.xml" rel="self"/>
+  
+  <subtitle>just try it</subtitle>
+  <title>OS-learning</title>
+  <updated>2026-11-19T02:55:44.000Z</updated>
+  <entry>
+    <author>
+      <name>lzh</name>
+    </author>
+    <category term="Skill 雷达" scheme="https://oslearning.cn/categories/Skill-%E9%9B%B7%E8%BE%BE/"/>
+    <id>https://oslearning.cn/briefs/skill-radar/2026-11-17-01/</id>
+    <link href="https://oslearning.cn/briefs/skill-radar/2026-11-17-01/"/>
+    <published>2026-11-18T03:14:06.000Z</published>
+    <summary type="text">本期围绕编码、研究、自动化，介绍值得关注的 Skill，重点说明功能、应用场景与使用限制。；采集截止（北京时间）：2026-11-17 17:06；部分来源缺失 · 历史证据重放；网页归档不代表独立事实核查或效果、安全、兼容性验证。</summary>
+    <title>Skill 雷达｜2026年11月17日（第1期）</title>
+    <updated>2026-11-19T02:55:44.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>lzh</name>
+    </author>
+    <category term="Hexo" scheme="https://oslearning.cn/categories/Hexo/"/>
+    <category term="GitHub Pages" scheme="https://oslearning.cn/tags/GitHub-Pages/"/>
+    <category term="Hexo" scheme="https://oslearning.cn/tags/Hexo/"/>
+    <category term="NexT" scheme="https://oslearning.cn/tags/NexT/"/>
+    <id>https://oslearning.cn/2023/04/03/hello-world/</id>
+    <link href="https://oslearning.cn/2023/04/03/hello-world/"/>
+    <published>2023-04-03T15:51:56.000Z</published>
+    <summary type="text">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask</summary>
+    <title>Hello World test</title>
+    <updated>2026-11-18T03:22:10.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>lzh</name>
+    </author>
+    <id>https://oslearning.cn/2023/03/30/autopage/</id>
+    <link href="https://oslearning.cn/2023/03/30/autopage/"/>
+    <published>2023-03-30T14:18:11.000Z</published>
+    <title>autopage</title>
+    <updated>2023-03-30T14:18:51.000Z</updated>
+  <summary type="text"></summary></entry>
+  <entry>
+    <author>
+      <name>lzh</name>
+    </author>
+    <id>https://oslearning.cn/2023/03/30/file2/</id>
+    <link href="https://oslearning.cn/2023/03/30/file2/"/>
+    <published>2023-03-29T16:22:02.000Z</published>
+    <title>file2</title>
+    <updated>2023-03-29T16:22:28.000Z</updated>
+  <summary type="text"></summary></entry>
+  <entry>
+    <author>
+      <name>lzh</name>
+    </author>
+    <id>https://oslearning.cn/2023/03/29/new-paper/</id>
+    <link href="https://oslearning.cn/2023/03/29/new-paper/"/>
+    <published>2023-03-29T11:57:53.000Z</published>
+    <title>new paper</title>
+    <updated>2023-03-29T16:06:33.000Z</updated>
+  <summary type="text"></summary></entry>
+  <entry>
+    <author>
+      <name>lzh</name>
+    </author>
+    <category term="test" scheme="https://oslearning.cn/tags/test/"/>
+    <id>https://oslearning.cn/2023/03/29/test/</id>
+    <link href="https://oslearning.cn/2023/03/29/test/"/>
+    <published>2023-03-29T11:28:40.000Z</published>
+    <summary type="text">this is a test papers void main()&amp;#123; return;&amp;#125;</summary>
+    <title>test</title>
+    <updated>2023-03-29T16:06:33.000Z</updated>
+  </entry>
+</feed>
