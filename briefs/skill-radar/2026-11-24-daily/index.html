@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#458684" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#458684">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"oslearning.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="本期介绍文献与历史网页资料的检索入口，以及如何把批量处理、条件分支和失败回退拆成自动化步骤；同时回顾保留业务行为的本地界面优化方法，以及生图、参考图修改和放大处理的素材制作路线。外部服务的账户、费用与数据边界需要另行核对，流程示例也不能直接充当生产调度器。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Skill 雷达｜2026年11月24日">
+<meta property="og:url" content="https://oslearning.cn/briefs/skill-radar/2026-11-24-daily/index.html">
+<meta property="og:site_name" content="OS-learning">
+<meta property="og:description" content="本期介绍文献与历史网页资料的检索入口，以及如何把批量处理、条件分支和失败回退拆成自动化步骤；同时回顾保留业务行为的本地界面优化方法，以及生图、参考图修改和放大处理的素材制作路线。外部服务的账户、费用与数据边界需要另行核对，流程示例也不能直接充当生产调度器。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-11-24T02:14:18.000Z">
+<meta property="article:modified_time" content="2026-11-24T02:14:18.000Z">
+<meta property="article:author" content="lzh">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://oslearning.cn/briefs/skill-radar/2026-11-24-daily/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://oslearning.cn/briefs/skill-radar/2026-11-24-daily/","path":"/briefs/skill-radar/2026-11-24-daily/","title":"Skill 雷达｜2026年11月24日"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Skill 雷达｜2026年11月24日 | OS-learning</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="OS-learning" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">OS-learning</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">just try it</p>
+  </div>
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">4</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">10</span></a></li><li class="menu-item menu-item-简报中心"><a href="/briefs/" rel="section"><i class="fa fa-newspaper fa-fw"></i>简报中心</a></li><li class="menu-item menu-item-订阅"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>订阅</a></li><li class="menu-item menu-item-本地阅读"><a href="/reading/" rel="section"><i class="fa fa-bookmark fa-fw"></i>本地阅读</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Skill-%E6%A6%82%E8%A7%88"><span class="nav-text">Skill 概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E6%9C%9F%E6%8E%A8%E8%8D%90"><span class="nav-text">本期推荐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-academic-research"><span class="nav-text">5. academic-research</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-ai-automation-workflows"><span class="nav-text">11. ai-automation-workflows</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E9%9D%92%E5%9B%9E%E9%A1%BE"><span class="nav-text">常青回顾</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-uizze-ui"><span class="nav-text">7. uizze-ui</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-ai-image-generation"><span class="nav-text">4. ai-image-generation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%85%E8%A6%81%E8%AF%B4%E6%98%8E"><span class="nav-text">必要说明</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lzh"
+      src="/picture/avatar.jpg">
+  <p class="site-author-name" itemprop="name">lzh</p>
+  <div class="site-description" itemprop="description">self blog</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/oslearn" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;oslearn" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://oslearning.cn/briefs/skill-radar/2026-11-24-daily/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/picture/avatar.jpg">
+      <meta itemprop="name" content="lzh">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="OS-learning">
+      <meta itemprop="description" content="self blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Skill 雷达｜2026年11月24日 | OS-learning">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Skill 雷达｜2026年11月24日
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-11-24 10:14:18" itemprop="dateCreated datePublished" datetime="2026-11-24T10:14:18+08:00">2026-11-24 10:14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-24 10:14:18" itemprop="dateModified" datetime="2026-11-24T10:14:18+08:00">2026-11-24 10:14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Skill-%E9%9B%B7%E8%BE%BE/" itemprop="url" rel="index"><span itemprop="name">Skill 雷达</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>本期介绍文献与历史网页资料的检索入口，以及如何把批量处理、条件分支和失败回退拆成自动化步骤；同时回顾保留业务行为的本地界面优化方法，以及生图、参考图修改和放大处理的素材制作路线。外部服务的账户、费用与数据边界需要另行核对，流程示例也不能直接充当生产调度器。</p>
+<span id="more"></span>
+
+<h2 id="Skill-概览"><a href="#Skill-概览" class="headerlink" title="Skill 概览"></a>Skill 概览</h2><p>下表展示本期候选，收录不等于推荐；详细介绍见后文。</p>
+<table>
+<thead>
+<tr>
+<th align="right">序号</th>
+<th>Skill</th>
+<th>功能简介</th>
+<th>主要应用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">1</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/101-skills/superpowers/blob/93a647364937903fa2f45629ca7c5f9c89fc57c9/tools/video/ai-video-generation/SKILL.md">ai-video-generation</a></td>
+<td>按输入素材和制作环节整理外部视频服务的命令调用示例。</td>
+<td>产品说明短片选型；已有视频的声音和剪辑后处理</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/frontend-design/SKILL.md">frontend-design</a></td>
+<td>先确定主题和视觉方案，再实现并复核界面设计。</td>
+<td>新产品页面设计；既有界面的视觉重构</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/vercel-labs/agent-browser/blob/0a923358ea989d7602f0d06507ad3447c62ffe9b/skills/agent-browser/SKILL.md">agent-browser</a></td>
+<td>用页面快照和元素引用组织浏览器自动化操作。</td>
+<td>网页功能巡检；表单交互与页面取数</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/101-skills/superpowers/blob/93a647364937903fa2f45629ca7c5f9c89fc57c9/tools/image/ai-image-generation/SKILL.md">ai-image-generation</a></td>
+<td>按生图、修改和放大任务整理外部图像服务调用示例。</td>
+<td>页面和产品原型配图；参考图编辑与尺寸处理</td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/101-skills/superpowers/blob/93a647364937903fa2f45629ca7c5f9c89fc57c9/tools/llm/academic-research/SKILL.md">academic-research</a></td>
+<td>整理预印本检索、论文元数据和网页存档查询入口。</td>
+<td>文献综述资料定位；论文标识与历史页面核对</td>
+</tr>
+<tr>
+<td align="right">6</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/beltsh/superpowers/blob/93a647364937903fa2f45629ca7c5f9c89fc57c9/tools/social/twitter-automation/SKILL.md">twitter-automation</a></td>
+<td>整理X内容读取、发布及账号互动的外部调用示例。</td>
+<td>已授权内容发布管理；社交内容读取与整理</td>
+</tr>
+<tr>
+<td align="right">7</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/uizze/uizze/blob/fc401e9e654cbafe427b0c98142fc8bccd0c4e7e/skills/uizze-ui/SKILL.md">uizze-ui</a></td>
+<td>先改进本地UI，再按需获取已授权的外部设计资源。</td>
+<td>已有页面的渐进优化；交互状态和设计素材整合</td>
+</tr>
+<tr>
+<td align="right">8</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/morluto/rea/blob/eb6c281fec68568aa95e7cbef59fe1c9eade99e5/.agents/skills/rea-ci-tests-audit/SKILL.md">rea-ci-tests-audit</a></td>
+<td>审计测试发现、夹具、失败检测和等价工作量成本。</td>
+<td>复杂CI门禁核对；测试效率与缓存审计</td>
+</tr>
+<tr>
+<td align="right">9</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/webapp-testing/SKILL.md">webapp-testing</a></td>
+<td>用Python Playwright组织本地网页交互、截图和日志检查。</td>
+<td>本地前后端联调；页面交互和控制台排查</td>
+</tr>
+<tr>
+<td align="right">10</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/depuschm/christian-guidelines/blob/bebb9a8c98e57a3e90b53ac0df8d8b2668dda3ee/skills/ask-guidelines/SKILL.md">ask-guidelines</a></td>
+<td>从规则与经文资料回答基督教信仰和生活问题。</td>
+<td>宗教资料出处问答；教派立场的归因整理</td>
+</tr>
+<tr>
+<td align="right">11</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/101-skills/superpowers/blob/93a647364937903fa2f45629ca7c5f9c89fc57c9/guides/content/ai-automation-workflows/SKILL.md">ai-automation-workflows</a></td>
+<td>用批量、串接、分支和回退示例梳理AI自动化步骤。</td>
+<td>内容任务的流程拆分；批量处理和失败分支设计</td>
+</tr>
+<tr>
+<td align="right">12</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/beltsh/superpowers/blob/93a647364937903fa2f45629ca7c5f9c89fc57c9/tools/video/ai-video-generation/SKILL.md">ai-video-generation</a></td>
+<td>同一视频服务调用指南的另一仓库收录版本。</td>
+<td>视频制作入口比较；重复技能来源辨认</td>
+</tr>
+</tbody></table>
+<h2 id="本期推荐"><a href="#本期推荐" class="headerlink" title="本期推荐"></a>本期推荐</h2><h3 id="5-academic-research"><a href="#5-academic-research" class="headerlink" title="5. academic-research"></a>5. <a target="_blank" rel="noopener" href="https://github.com/101-skills/superpowers/blob/93a647364937903fa2f45629ca7c5f9c89fc57c9/tools/llm/academic-research/SKILL.md">academic-research</a></h3><p>提供通过belt检索预印本、查询论文标识与元数据、请求PDF以及查询网页存档的命令示例。可先按标题、作者、摘要或分类收集材料，再组织阅读与引文核对；研究结论仍须回到实际原文。</p>
+<p><strong>精选原因</strong>：把文献定位、元数据获取和历史页面查询连接起来，适合先收集可追溯材料，再开展阅读与引用核验。本期未取得本周或累计的独立安装统计，按功能价值精选。</p>
+<p><strong>适用场景</strong></p>
+<ul>
+<li>文献综述资料定位</li>
+<li>论文标识与历史页面核对</li>
+</ul>
+<p><strong>可以这样提出任务（示意）</strong></p>
+<blockquote>
+<p>围绕一个研究问题建立候选论文清单，整理论文标识、来源和待读材料，并标出需要人工核对的引用。</p>
+</blockquote>
+<p><strong>使用前提与限制</strong>：需要外部CLI和账户，部分接口收费；查询会外发，原文版权、预印本状态和引文准确性需核对。汇编许可未核验。</p>
+<h3 id="11-ai-automation-workflows"><a href="#11-ai-automation-workflows" class="headerlink" title="11. ai-automation-workflows"></a>11. <a target="_blank" rel="noopener" href="https://github.com/101-skills/superpowers/blob/93a647364937903fa2f45629ca7c5f9c89fc57c9/guides/content/ai-automation-workflows/SKILL.md">ai-automation-workflows</a></h3><p>用命令行和Python示例展示批量处理、串行与并行任务、条件分支、重试回退和定时触发。可据此梳理研究、文字和素材的步骤关系，但示例并未实现可靠的跨运行状态、去重和累计预算控制。</p>
+<p><strong>精选原因</strong>：集中展示串行、批量和条件分支的例子，适合梳理自动化步骤；生产调度仍需另补状态与安全控制。本期未取得本周或累计的独立安装统计，按功能价值精选。本期仅作观察项介绍。</p>
+<p><strong>适用场景</strong></p>
+<ul>
+<li>内容任务的流程拆分</li>
+<li>批量处理和失败分支设计</li>
+</ul>
+<p><strong>可以这样提出任务（示意）</strong></p>
+<blockquote>
+<p>把资料检索、文字整理和素材制作拆成可恢复步骤，先设计状态、去重、总预算与脱敏日志，不直接部署示例。</p>
+</blockquote>
+<p><strong>使用前提与限制</strong>：需要额外外部服务与计费授权；示例缺持久状态及总预算，JSON输入、超时、告警和敏感日志均需另行设计。</p>
+<h2 id="常青回顾"><a href="#常青回顾" class="headerlink" title="常青回顾"></a>常青回顾</h2><h3 id="7-uizze-ui"><a href="#7-uizze-ui" class="headerlink" title="7. uizze-ui"></a>7. <a target="_blank" rel="noopener" href="https://github.com/uizze/uizze/blob/fc401e9e654cbafe427b0c98142fc8bccd0c4e7e/skills/uizze-ui/SKILL.md">uizze-ui</a></h3><p>先检查项目已有屏幕、组件和数据契约，再改进布局、字体、间距及加载、空白、错误等交互状态，并要求实际预览和键盘检查。本地工作无需Uizze账号；外部设计系统、字体和图标资源则走另行授权的付费连接。</p>
+<p><strong>精选原因</strong>：先保留项目行为，再检查界面层级和交互状态；本地改进不被付费素材连接阻断，适合渐进式页面优化。skills.sh 累计记录约 <strong>37.5万次安装</strong>，本周记录 <strong>7,108次安装</strong>。</p>
+<p><strong>适用场景</strong></p>
+<ul>
+<li>已有页面的渐进优化</li>
+<li>交互状态和设计素材整合</li>
+</ul>
+<p><strong>可以这样提出任务（示意）</strong></p>
+<blockquote>
+<p>保留当前页面的数据和业务行为，优化信息层级、空白与错误状态，再检查移动端、键盘焦点和溢出。</p>
+</blockquote>
+<p><strong>使用前提与限制</strong>：本地工作不需付费连接；外部设计资源需要付费账号及授权。技能许可不代表字体图标许可，具体素材需校验并保留署名。</p>
+<h3 id="4-ai-image-generation"><a href="#4-ai-image-generation" class="headerlink" title="4. ai-image-generation"></a>4. <a target="_blank" rel="noopener" href="https://github.com/101-skills/superpowers/blob/93a647364937903fa2f45629ca7c5f9c89fc57c9/tools/image/ai-image-generation/SKILL.md">ai-image-generation</a></h3><p>这份第三方说明把提示词生图、参考图修改、局部编辑和放大处理整理为belt调用示例。适合先比较素材制作路径，再选择对应服务；它不提供本地模型，也不证明所列模型名称、质量或价格目前可用。</p>
+<p><strong>精选原因</strong>：说明区分从提示词生成、基于参考图修改与放大处理，适合梳理页面素材制作路线；具体服务需再核验。skills.sh 累计记录约 <strong>106.8万次安装</strong>，本周记录 <strong>4,772次安装</strong>。本期仅作观察项介绍。</p>
+<p><strong>适用场景</strong></p>
+<ul>
+<li>页面和产品原型配图</li>
+<li>参考图编辑与尺寸处理</li>
+</ul>
+<p><strong>可以这样提出任务（示意）</strong></p>
+<blockquote>
+<p>为产品原型整理配图方案，区分从提示词生成、基于参考图修改和放大处理的输入要求。</p>
+</blockquote>
+<p><strong>使用前提与限制</strong>：需核对客户端、账户、模型可用性和费用；图片会外发，素材授权及汇编许可需确认，不直接采用说明中的价格宣传。</p>
+<h2 id="必要说明"><a href="#必要说明" class="headerlink" title="必要说明"></a>必要说明</h2><ul>
+<li>采集截止（北京时间）：2026年11月24日 10:05。</li>
+<li>来源与覆盖：skills.sh、GitHub、Hacker News；部分来源缺失，采集不完整；未取得：GitHub项目发现、部分相关讨论、部分Skill正文或辅助资料、部分项目目录。仅为有限采样，不是全网榜单。</li>
+<li>数据口径：安装数据来自 skills.sh；“本周”沿用平台统计窗口，累计数覆盖历史安装，不等于独立用户或实际使用次数。未取得的数据不按零处理。</li>
+<li>使用说明：基于公开文档整理，全部条目未安装、未运行；不代表独立的效果、安全或兼容性验证。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div class="reading-tools" data-reading-url="/briefs/skill-radar/2026-11-24-daily/" data-reading-title="Skill 雷达｜2026年11月24日">
+      <button type="button" data-reading-save aria-pressed="false">加入稍后阅读</button><button type="button" data-reading-read aria-pressed="false">标记已读</button><a href="/reading/">我的阅读清单</a>
+      <span class="reading-tool-status" role="status" aria-live="polite"></span></div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/briefs/ai-news/2026-11-23-news/" rel="next" title="AI 新闻简报｜2026年11月23日">
+                  AI 新闻简报｜2026年11月23日 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2023 – 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lzh</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="/lib/animejs/anime.min.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark-safe.js"></script>
+
+  <script src="/js/local-search-safe.js"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+<script src="/js/site-experience.js" defer></script>
+<script src="/js/reading-list.js" defer></script>
+
+</body>
+</html>
