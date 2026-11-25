@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#458684" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#458684">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"oslearning.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="本期从用户访谈准备和发布产物分析入手，关注如何区分事实、假设与未知；再介绍用文件保留开发任务状态的观察项，以及以真实界面截图制作并检查分享图片的流程。常青回顾覆盖技能发现和电子表格交付，提醒先判断任务适配，再检查公式、权限与输出，而不是把安装或生成当成完成。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Skill 雷达｜2026年11月25日">
+<meta property="og:url" content="https://oslearning.cn/briefs/skill-radar/2026-11-25-daily/index.html">
+<meta property="og:site_name" content="OS-learning">
+<meta property="og:description" content="本期从用户访谈准备和发布产物分析入手，关注如何区分事实、假设与未知；再介绍用文件保留开发任务状态的观察项，以及以真实界面截图制作并检查分享图片的流程。常青回顾覆盖技能发现和电子表格交付，提醒先判断任务适配，再检查公式、权限与输出，而不是把安装或生成当成完成。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-11-25T11:32:23.000Z">
+<meta property="article:modified_time" content="2026-11-25T11:32:23.000Z">
+<meta property="article:author" content="lzh">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://oslearning.cn/briefs/skill-radar/2026-11-25-daily/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://oslearning.cn/briefs/skill-radar/2026-11-25-daily/","path":"/briefs/skill-radar/2026-11-25-daily/","title":"Skill 雷达｜2026年11月25日"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Skill 雷达｜2026年11月25日 | OS-learning</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="OS-learning" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">OS-learning</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">just try it</p>
+  </div>
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">4</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">11</span></a></li><li class="menu-item menu-item-简报中心"><a href="/briefs/" rel="section"><i class="fa fa-newspaper fa-fw"></i>简报中心</a></li><li class="menu-item menu-item-订阅"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>订阅</a></li><li class="menu-item menu-item-本地阅读"><a href="/reading/" rel="section"><i class="fa fa-bookmark fa-fw"></i>本地阅读</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Skill-%E6%A6%82%E8%A7%88"><span class="nav-text">Skill 概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E6%9C%9F%E6%8E%A8%E8%8D%90"><span class="nav-text">本期推荐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-user-interview-guide"><span class="nav-text">4. user-interview-guide</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-reverse-engineer-anything"><span class="nav-text">11. reverse-engineer-anything</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-todo"><span class="nav-text">8. todo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-og-images"><span class="nav-text">5. og-images</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E9%9D%92%E5%9B%9E%E9%A1%BE"><span class="nav-text">常青回顾</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-find-skills"><span class="nav-text">1. find-skills</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-xlsx"><span class="nav-text">16. xlsx</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%85%E8%A6%81%E8%AF%B4%E6%98%8E"><span class="nav-text">必要说明</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lzh"
+      src="/picture/avatar.jpg">
+  <p class="site-author-name" itemprop="name">lzh</p>
+  <div class="site-description" itemprop="description">self blog</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/oslearn" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;oslearn" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://oslearning.cn/briefs/skill-radar/2026-11-25-daily/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/picture/avatar.jpg">
+      <meta itemprop="name" content="lzh">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="OS-learning">
+      <meta itemprop="description" content="self blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Skill 雷达｜2026年11月25日 | OS-learning">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Skill 雷达｜2026年11月25日
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-11-25 19:32:23" itemprop="dateCreated datePublished" datetime="2026-11-25T19:32:23+08:00">2026-11-25 19:32</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-25 19:32:23" itemprop="dateModified" datetime="2026-11-25T19:32:23+08:00">2026-11-25 19:32</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Skill-%E9%9B%B7%E8%BE%BE/" itemprop="url" rel="index"><span itemprop="name">Skill 雷达</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>本期从用户访谈准备和发布产物分析入手，关注如何区分事实、假设与未知；再介绍用文件保留开发任务状态的观察项，以及以真实界面截图制作并检查分享图片的流程。常青回顾覆盖技能发现和电子表格交付，提醒先判断任务适配，再检查公式、权限与输出，而不是把安装或生成当成完成。</p>
+<span id="more"></span>
+
+<h2 id="Skill-概览"><a href="#Skill-概览" class="headerlink" title="Skill 概览"></a>Skill 概览</h2><p>下表展示本期候选，收录不等于推荐；详细介绍见后文。</p>
+<table>
+<thead>
+<tr>
+<th align="right">序号</th>
+<th>Skill</th>
+<th>功能简介</th>
+<th>主要应用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">1</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/vercel-labs/skills/blob/57217cf86ba38148a57af9e90d14a4c049558330/skills/find-skills/SKILL.md">find-skills</a></td>
+<td>从具体任务出发检索技能，并整理功能、来源和安装入口。</td>
+<td>为测试或部署需求寻找现成技能；比较备选技能后再决定是否安装</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/frontend-design/SKILL.md">frontend-design</a></td>
+<td>先确定主题与视觉计划，再构建并评审页面和界面文案。</td>
+<td>为新产品确定页面视觉方向；改善现有页面层级与交互文案</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/beltsh/superpowers/blob/93a647364937903fa2f45629ca7c5f9c89fc57c9/tools/social/twitter-automation/SKILL.md">twitter-automation</a></td>
+<td>通过外部CLI管理X帖子、媒体、私信和关注操作。</td>
+<td>整理已授权社交账户的发布步骤；查看帖子及用户资料的接口用法</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/uxpilot-ai/user-interview-skill/blob/7f550e1019bf35375cfa7ff704e35481d4e0268e/skills/user-interview-guide/SKILL.md">user-interview-guide</a></td>
+<td>把研究问题转成中性访谈提纲、追问、主持提示和复盘。</td>
+<td>准备用户流失或产品转用访谈；审查诱导性问题并改写提纲</td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/abdiraimov-otabek/claude-code-og-image-skill/blob/be5678fc310270ff03a8c8caac47449f65b6700d/skills/og-images/SKILL.md">og-images</a></td>
+<td>用真实界面截图制作分享图片，并检查成品可读性与裁切。</td>
+<td>为应用上线制作链接预览和发布图集；界面更新后重做社交分享素材</td>
+</tr>
+<tr>
+<td align="right">6</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/morluto/rea/blob/ca7fdb32454cba46e18ccf42e2e1f1018ad08144/.agents/skills/rea-ci-tests-audit/SKILL.md">rea-ci-tests-audit</a></td>
+<td>审查CI假通过、夹具漂移与缓存，并按等价工作评估开销。</td>
+<td>调查测试绿灯是否真实覆盖回归；优化重复测试准备而不削弱门禁</td>
+</tr>
+<tr>
+<td align="right">7</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/webapp-testing/SKILL.md">webapp-testing</a></td>
+<td>用Playwright检查本地网页交互，记录截图与浏览器日志。</td>
+<td>前后端联调后的关键操作检查；排查按钮异常与控制台错误</td>
+</tr>
+<tr>
+<td align="right">8</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/bassemZohdy/todo-skills/blob/b5bcb2294a5349adcaa4db39b4643524864f39b3/plugin/skills/todo/SKILL.md">todo</a></td>
+<td>以任务树、验收命令和分支状态保存项目进展与归档。</td>
+<td>跨会话接续尚未完成的开发任务；用明确验收条件管理层级任务</td>
+</tr>
+<tr>
+<td align="right">9</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/vercel-labs/skills/blob/57217cf86ba38148a57af9e90d14a4c049558330/.automations/triage/skills/triage/SKILL.md">triage</a></td>
+<td>按缺陷机制与回归证据筛选PR，并受控交接给维护者。</td>
+<td>筛选skills CLI的聚焦缺陷修复；设计证据不足时不写入的PR审核</td>
+</tr>
+<tr>
+<td align="right">10</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/beltsh/superpowers/blob/93a647364937903fa2f45629ca7c5f9c89fc57c9/tools/video/ai-video-generation/SKILL.md">ai-video-generation</a></td>
+<td>通过外部CLI调用视频生成、编辑、音效和片段合并接口。</td>
+<td>梳理短片生成与后处理步骤；查看图片转视频接口的参数示例</td>
+</tr>
+<tr>
+<td align="right">11</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/morluto/rea/blob/ca7fdb32454cba46e18ccf42e2e1f1018ad08144/.agents/skills/reverse-engineer-anything/SKILL.md">reverse-engineer-anything</a></td>
+<td>按交付产物类型选择分析工具，保留证据并区分推断与未知。</td>
+<td>检查自有应用安装包与资源差异；解释发布产物中无法由源码确认的行为</td>
+</tr>
+<tr>
+<td align="right">12</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/bassemZohdy/todo-skills/blob/b5bcb2294a5349adcaa4db39b4643524864f39b3/plugin/skills/todo-update/SKILL.md">todo-update</a></td>
+<td>按用户指定文字和状态规则修改任务树节点，删除需确认。</td>
+<td>在既有任务树中标记阻塞或重新就绪；审查删除任务对子树和依赖的影响</td>
+</tr>
+<tr>
+<td align="right">13</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/vercel-labs/skills/blob/57217cf86ba38148a57af9e90d14a4c049558330/.automations/pr-labeling/skills/pr-labeling/SKILL.md">pr-labeling</a></td>
+<td>依据PR补丁分类并添加主类型标签，保留既有维护者标签。</td>
+<td>整理skills CLI新PR的主要改动类型；设计补丁不足时不写标签的规则</td>
+</tr>
+<tr>
+<td align="right">14</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/beltsh/superpowers/blob/93a647364937903fa2f45629ca7c5f9c89fc57c9/tools/image/ai-image-generation/SKILL.md">ai-image-generation</a></td>
+<td>通过外部CLI调用图像生成、编辑、放大和拼接接口。</td>
+<td>梳理概念图生成与编辑入口；查看参考图修改的接口参数</td>
+</tr>
+<tr>
+<td align="right">15</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/morluto/rea/blob/ca7fdb32454cba46e18ccf42e2e1f1018ad08144/.agents/skills/rea-tool-design/SKILL.md">rea-tool-design</a></td>
+<td>审查分析工具的输入输出、提供者边界和证据语义。</td>
+<td>设计分析工具的CLI与MCP契约；检查部分结果和恢复说明是否准确</td>
+</tr>
+<tr>
+<td align="right">16</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/xlsx/SKILL.md">xlsx</a></td>
+<td>读写和清洗电子表格，保留公式并重算检查工作簿。</td>
+<td>清洗业务表格并生成可编辑工作簿；排查公式缓存与表格保存异常</td>
+</tr>
+<tr>
+<td align="right">17</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/bassemZohdy/todo-skills/blob/b5bcb2294a5349adcaa4db39b4643524864f39b3/plugin/skills/todo-status/SKILL.md">todo-status</a></td>
+<td>只读查看任务树进度、当前节点、阻塞与近期归档。</td>
+<td>恢复会话前查看任务进展和阻塞；搜索任务树与归档中的历史任务</td>
+</tr>
+<tr>
+<td align="right">18</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/beltsh/superpowers/blob/93a647364937903fa2f45629ca7c5f9c89fc57c9/tools/video/ai-avatar-video/SKILL.md">ai-avatar-video</a></td>
+<td>用人物图片、脚本或音频调用外部平台制作讲解视频。</td>
+<td>整理已授权虚拟讲解素材流程；比较脚本配音和口型同步入口</td>
+</tr>
+<tr>
+<td align="right">19</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/morluto/rea/blob/ca7fdb32454cba46e18ccf42e2e1f1018ad08144/.agents/skills/rea-changelog-update/SKILL.md">rea-changelog-update</a></td>
+<td>按固定Git历史准备发布说明，并保留贡献来源与未知归因。</td>
+<td>准备REA发行说明和贡献者致谢；检查说明稿与固定发布版本绑定</td>
+</tr>
+<tr>
+<td align="right">20</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/web-artifacts-builder/SKILL.md">web-artifacts-builder</a></td>
+<td>构建多组件React原型，并将代码资源打包为单个HTML文件。</td>
+<td>分享包含状态和路由的交互原型；把前端演示打包为便于展示的文件</td>
+</tr>
+</tbody></table>
+<h2 id="本期推荐"><a href="#本期推荐" class="headerlink" title="本期推荐"></a>本期推荐</h2><h3 id="4-user-interview-guide"><a href="#4-user-interview-guide" class="headerlink" title="4. user-interview-guide"></a>4. <a target="_blank" rel="noopener" href="https://github.com/uxpilot-ai/user-interview-skill/blob/7f550e1019bf35375cfa7ff704e35481d4e0268e/skills/user-interview-guide/SKILL.md">user-interview-guide</a></h3><p>把研究目标转成可执行的一对一访谈提纲：先确认要了解什么以及结果如何使用，再选择深入研究或直接起草，区分已知、假设与未知，围绕真实经历设计中性问题和追问，输出限时提纲、主持人提示卡与即时复盘。</p>
+<p><strong>精选原因</strong>：不仅生成问题，还把竞争解释和弱证据分开，适合需要避免诱导提问、并能说明研究边界的访谈准备。skills.sh 本周记录 <strong>3,632次安装</strong>。</p>
+<p><strong>适用场景</strong></p>
+<ul>
+<li>准备用户流失或产品转用访谈</li>
+<li>审查诱导性问题并改写提纲</li>
+</ul>
+<p><strong>可以这样提出任务（示意）</strong></p>
+<blockquote>
+<p>为最近放弃试用的用户准备半小时访谈，区分事实与假设，输出中性问题和主持提示。</p>
+</blockquote>
+<p><strong>使用前提与限制</strong>：访谈资料须同意并去标识化；只抽样读取辅助配置，未完整核验引用的研究指南。UX Pilot可选，访谈不证明比例、因果或未来付费意愿。</p>
+<h3 id="11-reverse-engineer-anything"><a href="#11-reverse-engineer-anything" class="headerlink" title="11. reverse-engineer-anything"></a>11. <a target="_blank" rel="noopener" href="https://github.com/morluto/rea/blob/ca7fdb32454cba46e18ccf42e2e1f1018ad08144/.agents/skills/reverse-engineer-anything/SKILL.md">reverse-engineer-anything</a></h3><p>根据目标类型选择REA分析入口：区分已发布二进制、安装包、JavaScript应用和已授权运行时证据，先看摘要与清单，再按具体问题读取保留证据、比较版本并记录未知。完整源码仓库的普通架构分析不应启动该流程。</p>
+<p><strong>精选原因</strong>：先选对产物和证据类型，再按问题推进，适合避免把静态推断说成运行事实，也便于保留未知和接续调查。本期未取得本周或累计的独立安装统计，按功能价值精选。</p>
+<p><strong>适用场景</strong></p>
+<ul>
+<li>检查自有应用安装包与资源差异</li>
+<li>解释发布产物中无法由源码确认的行为</li>
+</ul>
+<p><strong>可以这样提出任务（示意）</strong></p>
+<blockquote>
+<p>比较两个自有应用安装包的功能与资源差异，先静态分析，列出证据和未知，不执行目标。</p>
+</blockquote>
+<p><strong>使用前提与限制</strong>：需要REA及相应引擎，Skill不等于工具已连接，部分引擎有费用或平台限制。仅分析已授权目标，运行或提取需确认；证据可能含敏感信息，辅助指南仅抽样。</p>
+<h3 id="8-todo"><a href="#8-todo" class="headerlink" title="8. todo"></a>8. <a target="_blank" rel="noopener" href="https://github.com/bassemZohdy/todo-skills/blob/b5bcb2294a5349adcaa4db39b4643524864f39b3/plugin/skills/todo/SKILL.md">todo</a></h3><p>把项目工作组织成TODO.md任务树，以状态、依赖、验收命令和分支记录保留进展，并将完成的根任务归入CHANGELOG。核心规则区分范围大小与推理复杂度，规定树结构和不变量；具体执行、更新和报告由配套命令技能负责。</p>
+<p><strong>精选原因</strong>：把任务状态、依赖和验收留在文件中，有利于中断接续；协议和配套执行尚未验证，本期仅作为流程观察。本期未取得本周或累计的独立安装统计，按功能价值精选。本期仅作观察项介绍。</p>
+<p><strong>适用场景</strong></p>
+<ul>
+<li>跨会话接续尚未完成的开发任务</li>
+<li>用明确验收条件管理层级任务</li>
+</ul>
+<p><strong>可以这样提出任务（示意）</strong></p>
+<blockquote>
+<p>评估如何把当前开发计划整理为任务树，写明依赖和验收，先只给迁移方案。</p>
+</blockquote>
+<p><strong>使用前提与限制</strong>：需配套命令和约定格式；直接调用核心只读，执行功能可能改文件和分支。仅抽样读CI参考，未完整核验恢复及验收机制，模型路由不是默认已配置。</p>
+<h3 id="5-og-images"><a href="#5-og-images" class="headerlink" title="5. og-images"></a>5. <a target="_blank" rel="noopener" href="https://github.com/abdiraimov-otabek/claude-code-og-image-skill/blob/be5678fc310270ff03a8c8caac47449f65b6700d/skills/og-images/SKILL.md">og-images</a></h3><p>用应用真实截图、图标和品牌信息制作链接预览、产品发布图集与社交页头，输出图片和元标签。流程包含安全演示数据、文案核对、渲染检查，以及逐张查看原尺寸和缩略图，检查尺寸、透明通道、文字可读性与裁切安全区。</p>
+<p><strong>精选原因</strong>：要求查看实际输出和缩略图，而不是只检查配置；真实截图、文字可读性与裁切检查适合产品发布素材。本期未取得本周或累计的独立安装统计，按功能价值精选。</p>
+<p><strong>适用场景</strong></p>
+<ul>
+<li>为应用上线制作链接预览和发布图集</li>
+<li>界面更新后重做社交分享素材</li>
+</ul>
+<p><strong>可以这样提出任务（示意）</strong></p>
+<blockquote>
+<p>用应用的匿名演示截图制作分享预览和发布图集，逐张检查缩略图文字与裁切，先不上传。</p>
+</blockquote>
+<p><strong>使用前提与限制</strong>：需要Node、Playwright和真实截图；原生捕获涉及系统权限。须去除隐私并确认字体素材许可，辅助文件仅抽样，渲染脚本与平台规格未独立验证。</p>
+<h2 id="常青回顾"><a href="#常青回顾" class="headerlink" title="常青回顾"></a>常青回顾</h2><h3 id="1-find-skills"><a href="#1-find-skills" class="headerlink" title="1. find-skills"></a>1. <a target="_blank" rel="noopener" href="https://github.com/vercel-labs/skills/blob/57217cf86ba38148a57af9e90d14a4c049558330/skills/find-skills/SKILL.md">find-skills</a></h3><p>把模糊的能力需求拆成领域与具体任务，先查看技能目录，再用关键词或作者范围检索，整理候选的功能、来源和安装入口。没有匹配结果时可回到直接完成任务，而不把搜索结果当成必须安装的清单。</p>
+<p><strong>精选原因</strong>：把需求转成可搜索的任务，并保留没有合适技能时直接处理的退路，适合扩展能力前的工具选择。skills.sh 累计记录约 <strong>453.2万次安装</strong>，本周记录 <strong>17,769次安装</strong>。</p>
+<p><strong>适用场景</strong></p>
+<ul>
+<li>为测试或部署需求寻找现成技能</li>
+<li>比较备选技能后再决定是否安装</li>
+</ul>
+<p><strong>可以这样提出任务（示意）</strong></p>
+<blockquote>
+<p>为本地网页回归测试寻找合适技能，比较功能、依赖和权限，先不要安装。</p>
+</blockquote>
+<p><strong>使用前提与限制</strong>：需要公开目录及Node环境；检索词会外发，安装需另行授权。安装量和仓库星数不能代替固定版本检查，不直接照搬全局免确认安装。</p>
+<h3 id="16-xlsx"><a href="#16-xlsx" class="headerlink" title="16. xlsx"></a>16. <a target="_blank" rel="noopener" href="https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/xlsx/SKILL.md">xlsx</a></h3><p>围绕电子表格文件组织读取、清洗、编辑与生成：按任务选择表格库，区分公式和缓存值，保留既有工作簿约定，写入后重算并查看结构化错误报告。它强调公式能求值不代表引用正确，也提醒宏、图形和外链的保留限制。</p>
+<p><strong>精选原因</strong>：把可编辑公式、缓存值和交付检查放在一起，适合表格清理与自动化生成，尤其提醒重算通过不等于逻辑正确。skills.sh 累计记录约 <strong>20.6万次安装</strong>，本周记录 <strong>694次安装</strong>。</p>
+<p><strong>适用场景</strong></p>
+<ul>
+<li>清洗业务表格并生成可编辑工作簿</li>
+<li>排查公式缓存与表格保存异常</li>
+</ul>
+<p><strong>可以这样提出任务（示意）</strong></p>
+<blockquote>
+<p>清理订单表并生成含汇总公式的工作簿，保留原约定，检查重算结果和关键单元格。</p>
+</blockquote>
+<p><strong>使用前提与限制</strong>：需Python表格库和LibreOffice，预安装不可假定；先备份，宏、图形及外链有保留风险。重算不证明逻辑正确，复杂公式兼容性、脚本及完整许可未全核验。</p>
+<h2 id="必要说明"><a href="#必要说明" class="headerlink" title="必要说明"></a>必要说明</h2><ul>
+<li>采集截止（北京时间）：2026年11月25日 19:21。</li>
+<li>来源与覆盖：skills.sh、GitHub、Hacker News；部分来源缺失，采集不完整；未取得：GitHub项目发现、部分Skill正文或辅助资料、部分项目目录。仅为有限采样，不是全网榜单。</li>
+<li>数据口径：安装数据来自 skills.sh；“本周”沿用平台统计窗口，累计数覆盖历史安装，不等于独立用户或实际使用次数。未取得的数据不按零处理。</li>
+<li>使用说明：基于公开文档整理，全部条目未安装、未运行；不代表独立的效果、安全或兼容性验证。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div class="reading-tools" data-reading-url="/briefs/skill-radar/2026-11-25-daily/" data-reading-title="Skill 雷达｜2026年11月25日">
+      <button type="button" data-reading-save aria-pressed="false">加入稍后阅读</button><button type="button" data-reading-read aria-pressed="false">标记已读</button><a href="/reading/">我的阅读清单</a>
+      <span class="reading-tool-status" role="status" aria-live="polite"></span></div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/briefs/skill-radar/2026-11-24-daily/" rel="next" title="Skill 雷达｜2026年11月24日">
+                  Skill 雷达｜2026年11月24日 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2023 – 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lzh</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="/lib/animejs/anime.min.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark-safe.js"></script>
+
+  <script src="/js/local-search-safe.js"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+<script src="/js/site-experience.js" defer></script>
+<script src="/js/reading-list.js" defer></script>
+
+</body>
+</html>
