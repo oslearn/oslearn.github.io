@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#458684" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#458684">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"oslearning.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="设计库里的组件怎样对应代码？更换代码助手前，哪些权限和配置得手工核对？本期从这两项团队交接工作出发，也介绍云端生图与短视频分镜的选型边界。常青回顾则看两种便于交给别人复核的产物：可直接分享的 React 单文件原型，以及只写草稿、不自动发帖的 Reddit 回复流程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Skill 雷达｜2026年11月27日">
+<meta property="og:url" content="https://oslearning.cn/briefs/skill-radar/2026-11-27-daily/index.html">
+<meta property="og:site_name" content="OS-learning">
+<meta property="og:description" content="设计库里的组件怎样对应代码？更换代码助手前，哪些权限和配置得手工核对？本期从这两项团队交接工作出发，也介绍云端生图与短视频分镜的选型边界。常青回顾则看两种便于交给别人复核的产物：可直接分享的 React 单文件原型，以及只写草稿、不自动发帖的 Reddit 回复流程。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-11-27T02:20:38.000Z">
+<meta property="article:modified_time" content="2026-11-27T02:20:38.000Z">
+<meta property="article:author" content="lzh">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://oslearning.cn/briefs/skill-radar/2026-11-27-daily/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://oslearning.cn/briefs/skill-radar/2026-11-27-daily/","path":"/briefs/skill-radar/2026-11-27-daily/","title":"Skill 雷达｜2026年11月27日"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Skill 雷达｜2026年11月27日 | OS-learning</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="OS-learning" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">OS-learning</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">just try it</p>
+  </div>
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">4</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">12</span></a></li><li class="menu-item menu-item-简报中心"><a href="/briefs/" rel="section"><i class="fa fa-newspaper fa-fw"></i>简报中心</a></li><li class="menu-item menu-item-订阅"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>订阅</a></li><li class="menu-item menu-item-本地阅读"><a href="/reading/" rel="section"><i class="fa fa-bookmark fa-fw"></i>本地阅读</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Skill-%E6%A6%82%E8%A7%88"><span class="nav-text">Skill 概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E6%9C%9F%E6%8E%A8%E8%8D%90"><span class="nav-text">本期推荐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-ai-video-generation"><span class="nav-text">9. ai-video-generation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-figma-code-connect-components"><span class="nav-text">14. figma-code-connect-components</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-migrate-to-codex"><span class="nav-text">10. migrate-to-codex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-ai-image-generation"><span class="nav-text">12. ai-image-generation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E9%9D%92%E5%9B%9E%E9%A1%BE"><span class="nav-text">常青回顾</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#13-web-artifacts-builder"><span class="nav-text">13. web-artifacts-builder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-reddit-automation"><span class="nav-text">1. reddit-automation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%85%E8%A6%81%E8%AF%B4%E6%98%8E"><span class="nav-text">必要说明</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lzh"
+      src="/picture/avatar.jpg">
+  <p class="site-author-name" itemprop="name">lzh</p>
+  <div class="site-description" itemprop="description">self blog</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/oslearn" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;oslearn" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://oslearning.cn/briefs/skill-radar/2026-11-27-daily/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/picture/avatar.jpg">
+      <meta itemprop="name" content="lzh">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="OS-learning">
+      <meta itemprop="description" content="self blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Skill 雷达｜2026年11月27日 | OS-learning">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Skill 雷达｜2026年11月27日
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-11-27 10:20:38" itemprop="dateCreated datePublished" datetime="2026-11-27T10:20:38+08:00">2026-11-27 10:20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-27 10:20:38" itemprop="dateModified" datetime="2026-11-27T10:20:38+08:00">2026-11-27 10:20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Skill-%E9%9B%B7%E8%BE%BE/" itemprop="url" rel="index"><span itemprop="name">Skill 雷达</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>设计库里的组件怎样对应代码？更换代码助手前，哪些权限和配置得手工核对？本期从这两项团队交接工作出发，也介绍云端生图与短视频分镜的选型边界。常青回顾则看两种便于交给别人复核的产物：可直接分享的 React 单文件原型，以及只写草稿、不自动发帖的 Reddit 回复流程。</p>
+<span id="more"></span>
+
+<h2 id="Skill-概览"><a href="#Skill-概览" class="headerlink" title="Skill 概览"></a>Skill 概览</h2><p>下表展示本期候选，收录不等于推荐；详细介绍见后文。</p>
+<table>
+<thead>
+<tr>
+<th align="right">序号</th>
+<th>Skill</th>
+<th>功能简介</th>
+<th>主要应用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">1</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/flowkit-labs/skills/blob/90c852bee7aaf90a914b0ac066264a12690ed8ac/reddit-automation/SKILL.md">reddit-automation</a></td>
+<td>筛选真正求助的 Reddit 帖子，并起草待人工审核的短回复。</td>
+<td>从指定社区寻找真实需求；审核利益相关的技术回复</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/frontend-design/SKILL.md">frontend-design</a></td>
+<td>先确立页面视觉方向，再按题材、文案和可访问性要求实现。</td>
+<td>产品落地页改版；数据面板视觉层级梳理</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/beltsh/superpowers/blob/13ccb5ea05deaa3ff9c8ba5c78d1e37756cc14b5/tools/social/twitter-automation/SKILL.md">twitter-automation</a></td>
+<td>通过第三方 CLI 读取 X 内容，并操作已授权账号的帖子与互动。</td>
+<td>读取公开帖以备人工审稿；已授权团队账号的内容管理</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/webapp-testing/SKILL.md">webapp-testing</a></td>
+<td>用 Python Playwright 检查本地页面交互，并记录截图和控制台日志。</td>
+<td>前端表单回归检查；复核间歇性界面报错</td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/uxpilot-ai/frontend-design-skill/blob/bb66c42c14385784d196b8b5c833946f082957f0/skills/ui-design/SKILL.md">ui-design</a></td>
+<td>把界面想法先放进可编辑的 UX Pilot 画布，再按选定方案实现。</td>
+<td>改版前比较两份界面方案；把已有 HTML 原型交给设计方评审</td>
+</tr>
+<tr>
+<td align="right">6</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/abdiraimov-otabek/claude-code-og-image-skill/blob/be5678fc310270ff03a8c8caac47449f65b6700d/skills/og-images/SKILL.md">og-images</a></td>
+<td>用真实界面截图排版分享卡片，并检查成图的尺寸、对比度与裁切。</td>
+<td>更新产品的链接预览图；准备发布图库与社交页眉</td>
+</tr>
+<tr>
+<td align="right">7</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/notion-research-documentation/SKILL.md">notion-research-documentation</a></td>
+<td>汇总多个 Notion 页面，在带来源引用的简报、对比或报告中整理发现。</td>
+<td>将内部选型资料整理成对比文档；从项目页提炼决策背景</td>
+</tr>
+<tr>
+<td align="right">8</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/flowkit-labs/skills/blob/90c852bee7aaf90a914b0ac066264a12690ed8ac/website-builder/SKILL.md">website-builder</a></td>
+<td>在 DoAny 上创建或更新托管网站，先交预览再由所有者决定是否上线。</td>
+<td>从业务简介做小企业首页预览；查看已有站点的待发布变更</td>
+</tr>
+<tr>
+<td align="right">9</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/beltsh/superpowers/blob/13ccb5ea05deaa3ff9c8ba5c78d1e37756cc14b5/tools/video/ai-video-generation/SKILL.md">ai-video-generation</a></td>
+<td>按文本、图片或参考素材选择云端模型，生成并组合短视频片段。</td>
+<td>做产品介绍短片分镜；从获许可的静态素材做动效草稿</td>
+</tr>
+<tr>
+<td align="right">10</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/migrate-to-codex/SKILL.md">migrate-to-codex</a></td>
+<td>先盘点并预演助手配置迁移，再对照差异写入选定的 Codex 作用域。</td>
+<td>迁移项目级助手配置；排查不能自动转换的权限项</td>
+</tr>
+<tr>
+<td align="right">11</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/flowkit-labs/skills/blob/90c852bee7aaf90a914b0ac066264a12690ed8ac/doany-website-builder/SKILL.md">doany-website-builder</a></td>
+<td>在 DoAny 中提交建站或改版任务，并核对预览、草稿与发布版本。</td>
+<td>跟踪已托管站点的改版草稿；核对首次构建的预览权限</td>
+</tr>
+<tr>
+<td align="right">12</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/beltsh/superpowers/blob/13ccb5ea05deaa3ff9c8ba5c78d1e37756cc14b5/tools/image/ai-image-generation/SKILL.md">ai-image-generation</a></td>
+<td>用一个 CLI 比较不同的云端生图和参考图编辑工作流。</td>
+<td>生成不含内部资料的概念图；用授权图制作多个背景变体</td>
+</tr>
+<tr>
+<td align="right">13</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/web-artifacts-builder/SKILL.md">web-artifacts-builder</a></td>
+<td>把带状态和多组件的 React 原型打成可分享的单个 HTML 文件。</td>
+<td>给评审发送多视图交互原型；打包包含筛选器的数据演示</td>
+</tr>
+<tr>
+<td align="right">14</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/figma-code-connect-components/SKILL.md">figma-code-connect-components</a></td>
+<td>给已发布的 Figma 组件找代码库中的对应实现，核对后登记关联。</td>
+<td>补齐设计系统的代码映射；清点同名组件的属性差异</td>
+</tr>
+<tr>
+<td align="right">15</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/beltsh/superpowers/blob/13ccb5ea05deaa3ff9c8ba5c78d1e37756cc14b5/tools/video/ai-avatar-video/SKILL.md">ai-avatar-video</a></td>
+<td>以授权肖像、脚本或配音为输入生成数字人短片，或同步已有视频口型。</td>
+<td>用自有素材预览培训旁白；规划授权演示片段的多语言配音</td>
+</tr>
+<tr>
+<td align="right">16</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/theme-factory/SKILL.md">theme-factory</a></td>
+<td>从样张挑选配色与字体组合，再统一应用到幻灯片、文档或网页。</td>
+<td>统一多作者演示稿的配色；为报告设置标题和正文字体</td>
+</tr>
+<tr>
+<td align="right">17</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.system/skill-installer/SKILL.md">skill-installer</a></td>
+<td>查看 Codex 技能目录，并按用户指定的来源安装选定技能。</td>
+<td>区分目录中已安装与可选项；核对某个候选的仓库路径</td>
+</tr>
+<tr>
+<td align="right">18</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/beltsh/superpowers/blob/13ccb5ea05deaa3ff9c8ba5c78d1e37756cc14b5/tools/llm/academic-research/SKILL.md">academic-research</a></td>
+<td>按题名、类别或日期检索预印本，并回查文献元数据与网页存档。</td>
+<td>给学术综述建初筛文献表；核对某篇文章引用的历史网页</td>
+</tr>
+<tr>
+<td align="right">19</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/Breaktroughf1/lockward/blob/d27494ce33bb06b69cb15907d99cc143a3c282c9/testdata/adapters/claude-code/project/.claude/skills/pdf-tools/SKILL.md">pdf-tools</a></td>
+<td>仓库中的 PDF 技能测试占位，抽样未见实际 PDF 处理逻辑。</td>
+<td>排查被名称误纳入的测试条目</td>
+</tr>
+<tr>
+<td align="right">20</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/slack-gif-creator/SKILL.md">slack-gif-creator</a></td>
+<td>逐帧绘制小动画，为 Slack 表情或消息压缩 GIF 并检查输出。</td>
+<td>制作团队内部的状态提示动画；预先检查自定义表情的大小与动效</td>
+</tr>
+</tbody></table>
+<h2 id="本期推荐"><a href="#本期推荐" class="headerlink" title="本期推荐"></a>本期推荐</h2><h3 id="9-ai-video-generation"><a href="#9-ai-video-generation" class="headerlink" title="9. ai-video-generation"></a>9. <a target="_blank" rel="noopener" href="https://github.com/beltsh/superpowers/blob/13ccb5ea05deaa3ff9c8ba5c78d1e37756cc14b5/tools/video/ai-video-generation/SKILL.md">ai-video-generation</a></h3><p>用 inference.sh CLI 在多个云端视频模型中选择文生视频、图生视频和参考素材生成路径，也可选声音或媒体工具处理演示片段。各模型支持的输入和输出规格不同。</p>
+<p><strong>精选原因</strong>：按手头素材选择生成路线，比单纯罗列模型更好用；价格、画质和输出权限仍要逐项核查。skills.sh 本周记录 <strong>29,409次安装</strong>。本期仅作观察项介绍。</p>
+<p><strong>适用场景</strong></p>
+<ul>
+<li>做产品介绍短片分镜</li>
+<li>从获许可的静态素材做动效草稿</li>
+</ul>
+<p><strong>可以这样提出任务（示意）</strong></p>
+<blockquote>
+<p>先根据已授权产品图拟一个短片分镜和费用估算，不提交素材。</p>
+</blockquote>
+<p><strong>使用前提与限制</strong>：需第三方 CLI、账号和云端额度；时长、声音、画质因模型而异，上传前核对素材与肖像权。</p>
+<h3 id="14-figma-code-connect-components"><a href="#14-figma-code-connect-components" class="headerlink" title="14. figma-code-connect-components"></a>14. <a target="_blank" rel="noopener" href="https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/figma-code-connect-components/SKILL.md">figma-code-connect-components</a></h3><p>从 Figma 选区识别未做 Code Connect 的已发布组件，对照本地代码库的组件、属性和用例提出映射建议，再由用户选择要写入的关联。</p>
+<p><strong>精选原因</strong>：比对组件属性后再登记关联，适合同时维护设计库和代码库、又经常遇到同名组件的团队。本期未取得本周或累计的独立安装统计，按功能价值精选。</p>
+<p><strong>适用场景</strong></p>
+<ul>
+<li>补齐设计系统的代码映射</li>
+<li>清点同名组件的属性差异</li>
+</ul>
+<p><strong>可以这样提出任务（示意）</strong></p>
+<blockquote>
+<p>对照这组已发布按钮和仓库实现列出匹配依据，暂不写回 Figma。</p>
+</blockquote>
+<p><strong>使用前提与限制</strong>：需 Figma MCP、可读代码与已发布组件；原文注明 Code Connect 要求组织或企业方案，写入前需确认映射。</p>
+<h3 id="10-migrate-to-codex"><a href="#10-migrate-to-codex" class="headerlink" title="10. migrate-to-codex"></a>10. <a target="_blank" rel="noopener" href="https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/migrate-to-codex/SKILL.md">migrate-to-codex</a></h3><p>扫描已有助手的指令、技能、代理和 MCP 配置，先提出迁移计划和暂存映射，试运行后写入所选 Codex 作用域，并复核不能自动直译的权限和扩展项。</p>
+<p><strong>精选原因</strong>：对团队来说，先看到从哪里迁到哪里以及哪些项要手工处理，比拿到一组直接生效的配置更可控。本期未取得本周或累计的独立安装统计，按功能价值精选。</p>
+<p><strong>适用场景</strong></p>
+<ul>
+<li>迁移项目级助手配置</li>
+<li>排查不能自动转换的权限项</li>
+</ul>
+<p><strong>可以这样提出任务（示意）</strong></p>
+<blockquote>
+<p>只读盘点这个仓库的助手配置，列出对应迁移位置和需要人工处理的项，不写入。</p>
+</blockquote>
+<p><strong>使用前提与限制</strong>：写入前核对目标作用域、现有配置、MCP 权限与钩子。不复制凭据，无法等价转换的项应手工核查。</p>
+<h3 id="12-ai-image-generation"><a href="#12-ai-image-generation" class="headerlink" title="12. ai-image-generation"></a>12. <a target="_blank" rel="noopener" href="https://github.com/beltsh/superpowers/blob/13ccb5ea05deaa3ff9c8ba5c78d1e37756cc14b5/tools/image/ai-image-generation/SKILL.md">ai-image-generation</a></h3><p>通过 inference.sh CLI 选择多个图像生成模型，完成文字生图、参考图编辑或素材变体。不同接口提供不同的风格、遮罩、宽高比及参考图设置。</p>
+<p><strong>精选原因</strong>：要从草图做到参考图变体时，可以在同一入口换模型比较，不必先搭几套调用环境。skills.sh 本周记录 <strong>29,396次安装</strong>。</p>
+<p><strong>适用场景</strong></p>
+<ul>
+<li>生成不含内部资料的概念图</li>
+<li>用授权图制作多个背景变体</li>
+</ul>
+<p><strong>可以这样提出任务（示意）</strong></p>
+<blockquote>
+<p>用已授权的产品样图比较两种背景编辑方案；先说明数据去向和预计用量。</p>
+</blockquote>
+<p><strong>使用前提与限制</strong>：需 inference.sh 账号与 CLI，选定模型后确认费用和使用条款，上传参考图前核对版权与数据授权。</p>
+<h2 id="常青回顾"><a href="#常青回顾" class="headerlink" title="常青回顾"></a>常青回顾</h2><h3 id="13-web-artifacts-builder"><a href="#13-web-artifacts-builder" class="headerlink" title="13. web-artifacts-builder"></a>13. <a target="_blank" rel="noopener" href="https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/web-artifacts-builder/SKILL.md">web-artifacts-builder</a></h3><p>为多组件交互原型初始化 React、TypeScript 和组件库工程，开发完成后用 Parcel 打包并内联脚本与样式，交付可直接分享的单个 HTML 文件。</p>
+<p><strong>精选原因</strong>：需要真实交互、却不想让收件人搭建前端工程时，单文件交付尤其方便。skills.sh 累计记录约 <strong>12.5万次安装</strong>，本周记录 <strong>449次安装</strong>。</p>
+<p><strong>适用场景</strong></p>
+<ul>
+<li>给评审发送多视图交互原型</li>
+<li>打包包含筛选器的数据演示</li>
+</ul>
+<p><strong>可以这样提出任务（示意）</strong></p>
+<blockquote>
+<p>用虚构数据做一个可筛选的仪表盘，在独立目录里交付单文件预览。</p>
+</blockquote>
+<p><strong>使用前提与限制</strong>：需要 Node、pnpm 和前端构建依赖。打包脚本会安装依赖并清理旧输出，应在独立目录运行并检查分享内容。</p>
+<h3 id="1-reddit-automation"><a href="#1-reddit-automation" class="headerlink" title="1. reddit-automation"></a>1. <a target="_blank" rel="noopener" href="https://github.com/flowkit-labs/skills/blob/90c852bee7aaf90a914b0ac066264a12690ed8ac/reddit-automation/SKILL.md">reddit-automation</a></h3><p>从指定 Reddit 社区找正在征询建议或描述具体困难的讨论，按需求清晰度、相关性和时效筛选帖子，再为合适的帖子拟写短回复。只交付草稿，发帖由人工决定。</p>
+<p><strong>精选原因</strong>：把少量值得参与的讨论从关键词噪声里挑出来，同时保留人工发布和利益披露这两道边界。skills.sh 累计记录约 <strong>156.3万次安装</strong>，本周记录 <strong>15,679次安装</strong>。</p>
+<p><strong>适用场景</strong></p>
+<ul>
+<li>从指定社区寻找真实需求</li>
+<li>审核利益相关的技术回复</li>
+</ul>
+<p><strong>可以这样提出任务（示意）</strong></p>
+<blockquote>
+<p>读我给出的公开帖子，找哪些问题能用我的真实经历回答；只写草稿，不发帖。</p>
+</blockquote>
+<p><strong>使用前提与限制</strong>：需提供可读的公开帖子和真实经历。不得编造使用体验；提及自家产品时要披露关系并遵守版规，回复由人工审核、发布。</p>
+<h2 id="必要说明"><a href="#必要说明" class="headerlink" title="必要说明"></a>必要说明</h2><ul>
+<li>采集截止（北京时间）：2026年11月27日 10:17。</li>
+<li>来源与覆盖：skills.sh、GitHub、Hacker News；部分来源缺失，采集不完整；未取得：小时热度资料、GitHub项目发现、GitHub新项目发现、GitHub更新项目发现、部分Skill正文或辅助资料、部分Skill正文、部分项目目录。仅为有限采样，不是全网榜单。</li>
+<li>数据口径：安装数据来自 skills.sh；“本周”沿用平台统计窗口，累计数覆盖历史安装，不等于独立用户或实际使用次数。未取得的数据不按零处理。</li>
+<li>使用说明：基于公开文档整理，全部条目未安装、未运行；不代表独立的效果、安全或兼容性验证。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div class="reading-tools" data-reading-url="/briefs/skill-radar/2026-11-27-daily/" data-reading-title="Skill 雷达｜2026年11月27日">
+      <button type="button" data-reading-save aria-pressed="false">加入稍后阅读</button><button type="button" data-reading-read aria-pressed="false">标记已读</button><a href="/reading/">我的阅读清单</a>
+      <span class="reading-tool-status" role="status" aria-live="polite"></span></div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/briefs/skill-radar/2026-11-25-daily/" rel="next" title="Skill 雷达｜2026年11月25日">
+                  Skill 雷达｜2026年11月25日 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2023 – 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lzh</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="/lib/animejs/anime.min.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark-safe.js"></script>
+
+  <script src="/js/local-search-safe.js"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+<script src="/js/site-experience.js" defer></script>
+<script src="/js/reading-list.js" defer></script>
+
+</body>
+</html>

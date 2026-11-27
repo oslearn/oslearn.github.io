@@ -10,7 +10,19 @@
   
   <subtitle>just try it</subtitle>
   <title>OS-learning</title>
-  <updated>2026-11-25T11:32:23.000Z</updated>
+  <updated>2026-11-27T02:20:38.000Z</updated>
+  <entry>
+    <author>
+      <name>lzh</name>
+    </author>
+    <category term="Skill 雷达" scheme="https://oslearning.cn/categories/Skill-%E9%9B%B7%E8%BE%BE/"/>
+    <id>https://oslearning.cn/briefs/skill-radar/2026-11-27-daily/</id>
+    <link href="https://oslearning.cn/briefs/skill-radar/2026-11-27-daily/"/>
+    <published>2026-11-27T02:20:38.000Z</published>
+    <summary type="text">设计库里的组件怎样对应代码？更换代码助手前，哪些权限和配置得手工核对？本期从这两项团队交接工作出发，也介绍云端生图与短视频分镜的选型边界。常青回顾则看两种便于交给别人复核的产物：可直接分享的 React 单文件原型，以及只写草稿、不自动发帖的 Reddit 回复流程。；采集截止（北京时间）：2026-11-27 10:17；部分来源缺失；网页归档不代表独立事实核查或效果、安全、兼容性验证。</summary>
+    <title>Skill 雷达｜2026年11月27日</title>
+    <updated>2026-11-27T02:20:38.000Z</updated>
+  </entry>
   <entry>
     <author>
       <name>lzh</name>
