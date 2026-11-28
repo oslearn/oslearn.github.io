@@ -10,7 +10,19 @@
   
   <subtitle>just try it</subtitle>
   <title>OS-learning</title>
-  <updated>2026-11-27T02:20:38.000Z</updated>
+  <updated>2026-11-28T01:02:52.000Z</updated>
+  <entry>
+    <author>
+      <name>lzh</name>
+    </author>
+    <category term="GitHub 日榜" scheme="https://oslearning.cn/categories/GitHub-%E6%97%A5%E6%A6%9C/"/>
+    <id>https://oslearning.cn/briefs/github-weekly/2026-11-28-daily/</id>
+    <link href="https://oslearning.cn/briefs/github-weekly/2026-11-28-daily/"/>
+    <published>2026-11-28T01:02:52.000Z</published>
+    <summary type="text">今天的日榜里，Superpowers 把设计确认、编码和验证拆开，CLI-Anything 则把已有应用的操作封装成代理可调用的命令。资料整理也有两条路：Firecrawl 面向页面正文和站点目录，last30days 聚合近期跨平台讨论。榜上还有把架构草图重绘成发布插图、把长视频剪成短片，以及动手训练小语言模型的项目。；采集截止（北京时间）：2026-11-28 09:01；本期来源覆盖完整；网页归档不代表独立事实核查或效果、安全、兼容性验证。</summary>
+    <title>GitHub 日报｜2026年11月28日</title>
+    <updated>2026-11-28T01:02:52.000Z</updated>
+  </entry>
   <entry>
     <author>
       <name>lzh</name>

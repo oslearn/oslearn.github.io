@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#458684" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#458684">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"oslearning.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="今天的日榜里，Superpowers 把设计确认、编码和验证拆开，CLI-Anything 则把已有应用的操作封装成代理可调用的命令。资料整理也有两条路：Firecrawl 面向页面正文和站点目录，last30days 聚合近期跨平台讨论。榜上还有把架构草图重绘成发布插图、把长视频剪成短片，以及动手训练小语言模型的项目。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitHub 日报｜2026年11月28日">
+<meta property="og:url" content="https://oslearning.cn/briefs/github-weekly/2026-11-28-daily/index.html">
+<meta property="og:site_name" content="OS-learning">
+<meta property="og:description" content="今天的日榜里，Superpowers 把设计确认、编码和验证拆开，CLI-Anything 则把已有应用的操作封装成代理可调用的命令。资料整理也有两条路：Firecrawl 面向页面正文和站点目录，last30days 聚合近期跨平台讨论。榜上还有把架构草图重绘成发布插图、把长视频剪成短片，以及动手训练小语言模型的项目。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-11-28T01:02:52.000Z">
+<meta property="article:modified_time" content="2026-11-28T01:02:52.000Z">
+<meta property="article:author" content="lzh">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://oslearning.cn/briefs/github-weekly/2026-11-28-daily/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://oslearning.cn/briefs/github-weekly/2026-11-28-daily/","path":"/briefs/github-weekly/2026-11-28-daily/","title":"GitHub 日报｜2026年11月28日"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>GitHub 日报｜2026年11月28日 | OS-learning</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="OS-learning" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">OS-learning</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">just try it</p>
+  </div>
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">4</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">5</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">13</span></a></li><li class="menu-item menu-item-简报中心"><a href="/briefs/" rel="section"><i class="fa fa-newspaper fa-fw"></i>简报中心</a></li><li class="menu-item menu-item-订阅"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>订阅</a></li><li class="menu-item menu-item-本地阅读"><a href="/reading/" rel="section"><i class="fa fa-bookmark fa-fw"></i>本地阅读</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A5%E6%A6%9C%E6%A6%82%E8%A7%88"><span class="nav-text">日榜概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#README-%E5%8A%9F%E8%83%BD%E6%95%B4%E7%90%86"><span class="nav-text">README 功能整理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-elementalsouls-x2F-Claude-BugHunter"><span class="nav-text">1. elementalsouls&#x2F;Claude-BugHunter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-obra-x2F-superpowers"><span class="nav-text">2. obra&#x2F;superpowers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-XiaoYouChR-x2F-Ghost-Downloader-3"><span class="nav-text">3. XiaoYouChR&#x2F;Ghost-Downloader-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-firecrawl-x2F-firecrawl"><span class="nav-text">4. firecrawl&#x2F;firecrawl</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-cathrynlavery-x2F-diagram-design"><span class="nav-text">5. cathrynlavery&#x2F;diagram-design</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-zhouxiaoka-x2F-autoclip"><span class="nav-text">6. zhouxiaoka&#x2F;autoclip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-mvanhorn-x2F-last30days-skill"><span class="nav-text">7. mvanhorn&#x2F;last30days-skill</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-HKUDS-x2F-CLI-Anything"><span class="nav-text">8. HKUDS&#x2F;CLI-Anything</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-jingyaogong-x2F-minimind"><span class="nav-text">9. jingyaogong&#x2F;minimind</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-mjmirza-x2F-app-store-compliance"><span class="nav-text">10. mjmirza&#x2F;app-store-compliance</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%89%E9%9C%80%E6%B1%82%E5%AF%B9%E7%85%A7"><span class="nav-text">按需求对照</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%85%E8%A6%81%E8%AF%B4%E6%98%8E"><span class="nav-text">必要说明</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lzh"
+      src="/picture/avatar.jpg">
+  <p class="site-author-name" itemprop="name">lzh</p>
+  <div class="site-description" itemprop="description">self blog</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/oslearn" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;oslearn" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://oslearning.cn/briefs/github-weekly/2026-11-28-daily/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/picture/avatar.jpg">
+      <meta itemprop="name" content="lzh">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="OS-learning">
+      <meta itemprop="description" content="self blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="GitHub 日报｜2026年11月28日 | OS-learning">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          GitHub 日报｜2026年11月28日
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-11-28 09:02:52" itemprop="dateCreated datePublished" datetime="2026-11-28T09:02:52+08:00">2026-11-28 09:02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-28 09:02:52" itemprop="dateModified" datetime="2026-11-28T09:02:52+08:00">2026-11-28 09:02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/GitHub-%E6%97%A5%E6%A6%9C/" itemprop="url" rel="index"><span itemprop="name">GitHub 日榜</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>今天的日榜里，Superpowers 把设计确认、编码和验证拆开，CLI-Anything 则把已有应用的操作封装成代理可调用的命令。资料整理也有两条路：Firecrawl 面向页面正文和站点目录，last30days 聚合近期跨平台讨论。榜上还有把架构草图重绘成发布插图、把长视频剪成短片，以及动手训练小语言模型的项目。</p>
+<span id="more"></span>
+
+<h2 id="日榜概览"><a href="#日榜概览" class="headerlink" title="日榜概览"></a>日榜概览</h2><table>
+<thead>
+<tr>
+<th align="right">排名</th>
+<th>项目</th>
+<th align="right">本日新增 Star</th>
+<th align="right">当前 Star</th>
+<th>主要语言</th>
+<th>连续在榜天数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">1</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/elementalsouls/Claude-BugHunter">elementalsouls&#x2F;Claude-BugHunter</a></td>
+<td align="right">+1,608</td>
+<td align="right">26,104</td>
+<td>Python</td>
+<td>未知（已连续观察2天）</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/obra/superpowers">obra&#x2F;superpowers</a></td>
+<td align="right">+922</td>
+<td align="right">328,321</td>
+<td>Shell</td>
+<td>未知（已连续观察2天）</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/XiaoYouChR/Ghost-Downloader-3">XiaoYouChR&#x2F;Ghost-Downloader-3</a></td>
+<td align="right">+836</td>
+<td align="right">19,851</td>
+<td>Python</td>
+<td>未知（已连续观察2天）</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/firecrawl/firecrawl">firecrawl&#x2F;firecrawl</a></td>
+<td align="right">+822</td>
+<td align="right">211,689</td>
+<td>TypeScript</td>
+<td>未知（已连续观察2天）</td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/cathrynlavery/diagram-design">cathrynlavery&#x2F;diagram-design</a></td>
+<td align="right">+725</td>
+<td align="right">74,466</td>
+<td>HTML</td>
+<td>未知（已连续观察2天）</td>
+</tr>
+<tr>
+<td align="right">6</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/zhouxiaoka/autoclip">zhouxiaoka&#x2F;autoclip</a></td>
+<td align="right">+718</td>
+<td align="right">17,594</td>
+<td>Python</td>
+<td>未知（已连续观察2天）</td>
+</tr>
+<tr>
+<td align="right">7</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/mvanhorn/last30days-skill">mvanhorn&#x2F;last30days-skill</a></td>
+<td align="right">+675</td>
+<td align="right">76,373</td>
+<td>Python</td>
+<td>未知（已连续观察2天）</td>
+</tr>
+<tr>
+<td align="right">8</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/HKUDS/CLI-Anything">HKUDS&#x2F;CLI-Anything</a></td>
+<td align="right">+666</td>
+<td align="right">67,008</td>
+<td>Python</td>
+<td>未知（已连续观察2天）</td>
+</tr>
+<tr>
+<td align="right">9</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/jingyaogong/minimind">jingyaogong&#x2F;minimind</a></td>
+<td align="right">+660</td>
+<td align="right">72,212</td>
+<td>Python</td>
+<td>未知（已连续观察2天）</td>
+</tr>
+<tr>
+<td align="right">10</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/mjmirza/app-store-compliance">mjmirza&#x2F;app-store-compliance</a></td>
+<td align="right">+530</td>
+<td align="right">7,914</td>
+<td>Shell</td>
+<td>未知（已连续观察2天）</td>
+</tr>
+<tr>
+<td align="right">11</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/toeverything/AFFiNE">toeverything&#x2F;AFFiNE</a></td>
+<td align="right">+474</td>
+<td align="right">79,454</td>
+<td>TypeScript</td>
+<td>未知（已连续观察2天）</td>
+</tr>
+<tr>
+<td align="right">12</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/Tracer-Cloud/opensre">Tracer-Cloud&#x2F;opensre</a></td>
+<td align="right">+328</td>
+<td align="right">16,132</td>
+<td>Python</td>
+<td>未知（已连续观察2天）</td>
+</tr>
+<tr>
+<td align="right">13</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/google-labs-code/stitch-skills">google-labs-code&#x2F;stitch-skills</a></td>
+<td align="right">+311</td>
+<td align="right">13,593</td>
+<td>TypeScript</td>
+<td>未知（已连续观察2天）</td>
+</tr>
+<tr>
+<td align="right">14</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/cursor/plugins">cursor&#x2F;plugins</a></td>
+<td align="right">+243</td>
+<td align="right">20,011</td>
+<td>TypeScript</td>
+<td>未知（已连续观察2天）</td>
+</tr>
+<tr>
+<td align="right">15</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/openvinotoolkit/openvino">openvinotoolkit&#x2F;openvino</a></td>
+<td align="right">+151</td>
+<td align="right">12,953</td>
+<td>C++</td>
+<td>未知（已连续观察2天）</td>
+</tr>
+<tr>
+<td align="right">16</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/nginx/nginx">nginx&#x2F;nginx</a></td>
+<td align="right">+146</td>
+<td align="right">33,662</td>
+<td>C</td>
+<td>未知（已连续观察2天）</td>
+</tr>
+</tbody></table>
+<h2 id="README-功能整理"><a href="#README-功能整理" class="headerlink" title="README 功能整理"></a>README 功能整理</h2><h3 id="1-elementalsouls-x2F-Claude-BugHunter"><a href="#1-elementalsouls-x2F-Claude-BugHunter" class="headerlink" title="1. elementalsouls&#x2F;Claude-BugHunter"></a>1. elementalsouls&#x2F;Claude-BugHunter</h3><p><strong>核心定位</strong>：项目方把面向外部安全评估的资料和工作流打包成代理技能，其中含范围核对、发现分诊、报告写作与证据处理。</p>
+<p><strong>主要功能</strong>：</p>
+<ul>
+<li>根据评估主题载入相关说明，提供分诊和报告模板。</li>
+<li>在提交发现前提示核对授权范围、接收方接受的影响类型与证据质量。</li>
+</ul>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li>为已经掌握的自有资产安全发现整理修复工单与去标识化证据。</li>
+<li>评审安全团队的发现分诊和报告流程。</li>
+</ul>
+<p><strong>使用前提</strong>：需要支持该技能包的代理宿主，例如 README 列出的 Claude Code；实际资产评估仍需资产归属或明确书面授权。</p>
+<p><strong>权限与限制</strong>：项目也含外部红队资料；本期仅介绍防御性分诊和报告，不提供攻击操作。工具内的范围检查不等于授权，不宜交由代理自行决定目标或提交发现。</p>
+<p><strong>许可证提示</strong>：该版本 README 区分代码的 MIT 与方法文档等内容的 CC BY 4.0，不能用仓库的 MIT 标签概括全部文件。</p>
+<p>来源：<a target="_blank" rel="noopener" href="https://github.com/elementalsouls/Claude-BugHunter/blob/9b7fc8dcf599a48f5f986971fdc62146a7f5a431/README.md">README（本期参考版本）</a></p>
+<h3 id="2-obra-x2F-superpowers"><a href="#2-obra-x2F-superpowers" class="headerlink" title="2. obra&#x2F;superpowers"></a>2. obra&#x2F;superpowers</h3><p><strong>核心定位</strong>：一套编码代理技能，先确认需求和设计，再拆成可验证的实施步骤，并把测试、评审与结束分支纳入同一流程。</p>
+<p><strong>主要功能</strong>：</p>
+<ul>
+<li>在开工前用问题澄清需求，请用户确认设计，再生成含文件位置和验证步骤的计划。</li>
+<li>支持独立工作树、先写失败测试再实现，以及实现后的复核；可分派子任务，也可在当前会话执行。</li>
+</ul>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li>把跨模块需求拆成能单独测试和评审的小改动。</li>
+<li>修复难以复现的问题时，先记录根因证据，再用测试确认修复。</li>
+</ul>
+<p><strong>使用前提</strong>：需受支持的编码代理宿主，按宿主分别安装；用到工作树和测试时，还需要可用的 Git 与项目测试环境。</p>
+<p><strong>权限与限制</strong>：自动触发不保证每个代理都遵守流程；需审阅测试与提交结果。可选的可视化组件默认会访问项目方网站获取带版本信息的标志。</p>
+<p><strong>许可证提示</strong>：固定版本 README 标明 MIT；仓库源码许可不代表另列的商业服务免费。</p>
+<p>来源：<a target="_blank" rel="noopener" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/README.md">README（本期参考版本）</a></p>
+<h3 id="3-XiaoYouChR-x2F-Ghost-Downloader-3"><a href="#3-XiaoYouChR-x2F-Ghost-Downloader-3" class="headerlink" title="3. XiaoYouChR&#x2F;Ghost-Downloader-3"></a>3. XiaoYouChR&#x2F;Ghost-Downloader-3</h3><p><strong>核心定位</strong>：跨平台下载管理器，将常见文件和媒体协议的传输任务放在同一个工具里管理，另提供命令行和浏览器扩展。</p>
+<p><strong>主要功能</strong>：</p>
+<ul>
+<li>README 列出 HTTP、FTP、Magnet&#x2F;BT 和 HLS 等来源，并支持下载任务的暂停和恢复。</li>
+<li>命令行可先预览地址而不创建任务，也能查询任务状态；浏览器扩展可将下载交给桌面端。</li>
+</ul>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li>将获准获取的公开数据文件和媒体素材交给统一的下载队列。</li>
+<li>在脚本中查询和等待既有下载任务，不必打开桌面界面轮询。</li>
+</ul>
+<p><strong>使用前提</strong>：固定版本 README 列出 Windows、macOS、Linux 和 Android 的系统与架构要求；桌面版还需留意 Qt 对旧 CPU 的限制。</p>
+<p><strong>权限与限制</strong>：浏览器扩展可能把认证状态交给桌面端，需审核扩展权限；仅下载有权获取的文件，不把 README 的速度描述当实测结果。</p>
+<p><strong>许可证提示</strong>：固定版本 README 标明 GPL v3.0；下载内容自身的权利与程序许可是两回事。</p>
+<p>来源：<a target="_blank" rel="noopener" href="https://github.com/XiaoYouChR/Ghost-Downloader-3/blob/cc55b9a4cd96c29ca6393782107bb7f041a123b1/README.md">README（本期参考版本）</a></p>
+<h3 id="4-firecrawl-x2F-firecrawl"><a href="#4-firecrawl-x2F-firecrawl" class="headerlink" title="4. firecrawl&#x2F;firecrawl"></a>4. firecrawl&#x2F;firecrawl</h3><p><strong>核心定位</strong>：为检索和代理工作流提供网页正文与 URL 列表，同一项目区分本地程序、托管服务和完整服务器自部署。</p>
+<p><strong>主要功能</strong>：</p>
+<ul>
+<li>将页面正文转换为 Markdown，也能列举站点 URL 或批量采集多页。</li>
+<li>本地端可提供兼容接口；托管端额外提供结构化输出和 Alexandria 等数据能力。</li>
+</ul>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li>把获准采集的产品文档整理成可检索的 Markdown 语料。</li>
+<li>先生成站点页面清单，再挑出帮助页批量归档。</li>
+</ul>
+<p><strong>使用前提</strong>：README 的本地构建路径需要 Rust 和 C 编译器；完整自部署示例还涉及 Docker Compose、Redis、PostgreSQL 和浏览器服务。</p>
+<p><strong>权限与限制</strong>：本地版某些单页抓取默认可能回退到云端；敏感网址或内容须先检查数据流和云端开关。使用前核对网站条款、隐私和 robots 规则。</p>
+<p><strong>许可证提示</strong>：README 称主体采用 AGPL-3.0，SDK 和部分界面组件为 MIT，具体应按组件核对。</p>
+<p>来源：<a target="_blank" rel="noopener" href="https://github.com/firecrawl/firecrawl/blob/3f8516d05457306f5561e12eeb8a63f9d416a673/README.md">README（本期参考版本）</a></p>
+<h3 id="5-cathrynlavery-x2F-diagram-design"><a href="#5-cathrynlavery-x2F-diagram-design" class="headerlink" title="5. cathrynlavery&#x2F;diagram-design"></a>5. cathrynlavery&#x2F;diagram-design</h3><p><strong>核心定位</strong>：面向文档和文章配图的代理技能，用自然语言或已有图表源生成内嵌 SVG 的 HTML，并可沿用网站的颜色与字体。</p>
+<p><strong>主要功能</strong>：</p>
+<ul>
+<li>按图的表达目的选择架构图、时序图等模板，输出可直接打开的 HTML。</li>
+<li>可重绘 Mermaid、draw.io 等来源，或提取指定站点的配色；按用途导出 SVG 或 PNG。</li>
+</ul>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li>把设计草图做成适合发布在博客或演示文稿里的架构图。</li>
+<li>在多张培训配图中统一强调色、字体与图例样式。</li>
+</ul>
+<p><strong>使用前提</strong>：需要支持 Agent Skills 的宿主；固定版本 README 的 PNG 导出依赖 Playwright 与 Chromium，SVG 离线使用需留意字体选项。</p>
+<p><strong>权限与限制</strong>：模型参与摆放，同一输入未必得到相同布局；生成物不保留为可拖拽的源文件。需要随代码频繁审阅差异时，不宜替代文本图表源。</p>
+<p><strong>许可证提示</strong>：GitHub 仓库元数据标记 MIT；若图中引入外部字体、图标或素材，须另查其授权。</p>
+<p>来源：<a target="_blank" rel="noopener" href="https://github.com/cathrynlavery/diagram-design/blob/795eec47fd376e5dda0b9e056a49520060cd2f13/README.md">README（本期参考版本）</a></p>
+<h3 id="6-zhouxiaoka-x2F-autoclip"><a href="#6-zhouxiaoka-x2F-autoclip" class="headerlink" title="6. zhouxiaoka&#x2F;autoclip"></a>6. zhouxiaoka&#x2F;autoclip</h3><p><strong>核心定位</strong>：将长视频或直播回放拆成短片的桌面和命令行工具，把片段选择、说话人跟踪、字幕和封面生成接在一次处理里。</p>
+<p><strong>主要功能</strong>：</p>
+<ul>
+<li>从本地视频、链接或直播回放挑选片段，生成带字幕的不同平台版式。</li>
+<li>切割和渲染在本机进行；文字分析与转写可选本地模型，也可接云服务。</li>
+</ul>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li>从已获授权的播客或访谈中剪出竖屏片段，再人工复查字幕和上下文。</li>
+<li>为同一课程片段准备横版和竖版导出，保留原始录像。</li>
+</ul>
+<p><strong>使用前提</strong>：桌面包面向 Apple Silicon 与指定的 Windows x64 版本；CLI&#x2F;MCP 需 Python 和 FFmpeg，本地转写和分析另需对应模型。</p>
+<p><strong>权限与限制</strong>：云分析、视觉模型和云转写分别可能接收字幕文本、抽取帧和音频；云服务可能计费，直接发布还涉及平台账号授权。</p>
+<p><strong>许可证提示</strong>：README 标明工具使用 MIT；它不授予视频素材、人物肖像或音乐的使用权。</p>
+<p>来源：<a target="_blank" rel="noopener" href="https://github.com/zhouxiaoka/autoclip/blob/d840e67d2ce43b18c7a31e238bf18e105fe4e69a/README.md">README（本期参考版本）</a></p>
+<h3 id="7-mvanhorn-x2F-last30days-skill"><a href="#7-mvanhorn-x2F-last30days-skill" class="headerlink" title="7. mvanhorn&#x2F;last30days-skill"></a>7. mvanhorn&#x2F;last30days-skill</h3><p><strong>核心定位</strong>：围绕一个主题并行查找近期跨平台讨论，按相关性、时间和互动筛选，将同一事件合并成带来源的简报。</p>
+<p><strong>主要功能</strong>：</p>
+<ul>
+<li>从 Reddit、Hacker News、视频转录等入口取样，具体可用来源取决于所选后端。</li>
+<li>支持 Markdown 快照和结构化输出；同一故事的跨平台提及可以合并，而不是逐条重复罗列。</li>
+</ul>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li>比较工具时先找到近期常见问题，再回原帖与官方文档逐条核实。</li>
+<li>会前整理一个技术主题最近的社区讨论与待确认问题。</li>
+</ul>
+<p><strong>使用前提</strong>：README 列出 Python 3.12+，部分来源还需要 yt-dlp 等工具；平台覆盖受登录、API 凭据、开通范围和计费影响。</p>
+<p><strong>权限与限制</strong>：互动分不是事实可靠性；各来源不一定都覆盖整整 30 天。默认重排可能使用环境中的凭据并把主题和入选片段送给外部模型。</p>
+<p><strong>许可证提示</strong>：固定版本 README 写明 MIT；引用社区帖子、转录或平台数据仍应保留归因并尊重各来源规则。</p>
+<p>来源：<a target="_blank" rel="noopener" href="https://github.com/mvanhorn/last30days-skill/blob/3fd946546afddc2096ab955f3abb223ed59f52ce/README.md">README（本期参考版本）</a></p>
+<h3 id="8-HKUDS-x2F-CLI-Anything"><a href="#8-HKUDS-x2F-CLI-Anything" class="headerlink" title="8. HKUDS&#x2F;CLI-Anything"></a>8. HKUDS&#x2F;CLI-Anything</h3><p><strong>核心定位</strong>：为已有应用生成可由代理调用的命令行包装层，也提供目录，让团队先查找现成接口再决定是否生成。</p>
+<p><strong>主要功能</strong>：</p>
+<ul>
+<li>生成命令组、帮助说明和配套的技能文档，给代理提供稳定的操作入口。</li>
+<li>项目描述的包装层调用实际应用完成处理，并配套单元、端到端和命令行进程测试。</li>
+</ul>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li>为团队已有的制图或媒体应用封装可在测试环境重复执行的操作。</li>
+<li>在多个工作流共用一个内部工具时，先固定输入和输出，再逐项验证命令。</li>
+</ul>
+<p><strong>使用前提</strong>：生成路径需 Python 3.10+、支持的编码代理与可访问的目标程序或源码；使用生成物时仍可能要安装底层应用。</p>
+<p><strong>权限与限制</strong>：不能仅凭接口生成成功就认定覆盖了应用能力；应先审查目录来源、底层命令和写入权限，再用测试数据验证。</p>
+<p><strong>许可证提示</strong>：固定版本 README 标明 Apache-2.0；被包装的目标程序及从目录获取的第三方工具另查许可。</p>
+<p>来源：<a target="_blank" rel="noopener" href="https://github.com/HKUDS/CLI-Anything/blob/34f519533bc175d2fe287ab8316b0dd99bb9cc43/README.md">README（本期参考版本）</a></p>
+<h3 id="9-jingyaogong-x2F-minimind"><a href="#9-jingyaogong-x2F-minimind" class="headerlink" title="9. jingyaogong&#x2F;minimind"></a>9. jingyaogong&#x2F;minimind</h3><p><strong>核心定位</strong>：一套从分词和模型结构入手练习小语言模型训练的代码与教程，可分阶段观察预训练、指令微调和其他扩展步骤。</p>
+<p><strong>主要功能</strong>：</p>
+<ul>
+<li>提供稠密与 MoE 结构代码，以及预训练、指令微调和中间权重等教学材料。</li>
+<li>可在同一套代码上追加 LoRA，比较低秩分支与全参数微调所需的资源和产生的权重。</li>
+</ul>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li>在课程实验中跑通从数据准备到对话模型训练的最小链路。</li>
+<li>用小模型比较全量微调和 LoRA 的训练过程，而非比较生产模型性能。</li>
+</ul>
+<p><strong>使用前提</strong>：需 Python、适配的 PyTorch 后端、训练数据和存放权重的空间；使用 CUDA 前应确认驱动、显存和设备识别。</p>
+<p><strong>权限与限制</strong>：README 的时间和费用说明基于特定硬件、数据与阶段，不能当完整流程的普遍承诺；CPU、MPS 与 CUDA 的速度和兼容性可能不同。</p>
+<p><strong>许可证提示</strong>：项目 README 声明 Apache-2.0；引用或再分发时仍应检查各外部数据集及权重的单独条款。</p>
+<p>来源：<a target="_blank" rel="noopener" href="https://github.com/jingyaogong/minimind/blob/96de8920ad12d888fb5c1c8ab4a42065f4c2ed98/README.md">README（本期参考版本）</a></p>
+<h3 id="10-mjmirza-x2F-app-store-compliance"><a href="#10-mjmirza-x2F-app-store-compliance" class="headerlink" title="10. mjmirza&#x2F;app-store-compliance"></a>10. mjmirza&#x2F;app-store-compliance</h3><p><strong>核心定位</strong>：面向移动应用提交前的项目扫描脚本和人工清单，帮助团队把常见拒审点整理成可复核的检查项。</p>
+<p><strong>主要功能</strong>：</p>
+<ul>
+<li>在包含 Xcode 或 Android 项目的目录查找规则风险，并给出触发位置。</li>
+<li>配套清单还覆盖扫描无法确认的事项，如演示账号、线上后端和实际隐私声明。</li>
+</ul>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li>在提交移动应用前，把隐私声明和权限提示分配给开发与发布负责人逐项复核。</li>
+<li>收到拒审结果后，用清单定位相关项目区域，再到对应商店官方页面核对。</li>
+</ul>
+<p><strong>使用前提</strong>：固定版本 README 的单次扫描依赖 Git 和 Bash 及可读取的项目目录；核对账号和商店资料仍需负责人参与。</p>
+<p><strong>权限与限制</strong>：静态扫描不覆盖运行时、账号或店面全部信息；没有查到高风险不等于获准上架，实际要求以平台的有效官方规则为准。</p>
+<p><strong>许可证提示</strong>：GitHub 元数据未确认标准许可；该版本 README 标明 OpenRoots Agent License 2.3，使用和分发前应核对原条款，不当作 MIT。</p>
+<p>来源：<a target="_blank" rel="noopener" href="https://github.com/mjmirza/app-store-compliance/blob/c6594f9f9e96c6fbc525242ba3f3fa4b7cc55395/README.md">README（本期参考版本）</a></p>
+<h2 id="按需求对照"><a href="#按需求对照" class="headerlink" title="按需求对照"></a>按需求对照</h2><table>
+<thead>
+<tr>
+<th>需求</th>
+<th>项目</th>
+<th>使用边界</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>为已经掌握的自有资产安全发现整理修复工单与去标识化证据。</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/elementalsouls/Claude-BugHunter">elementalsouls&#x2F;Claude-BugHunter</a></td>
+<td>项目也含外部红队资料；本期仅介绍防御性分诊和报告，不提供攻击操作。工具内的范围检查不等于授权，不宜交由代理自行决定目标或提交发现。</td>
+</tr>
+<tr>
+<td>把跨模块需求拆成能单独测试和评审的小改动。</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/obra/superpowers">obra&#x2F;superpowers</a></td>
+<td>自动触发不保证每个代理都遵守流程；需审阅测试与提交结果。可选的可视化组件默认会访问项目方网站获取带版本信息的标志。</td>
+</tr>
+<tr>
+<td>将获准获取的公开数据文件和媒体素材交给统一的下载队列。</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/XiaoYouChR/Ghost-Downloader-3">XiaoYouChR&#x2F;Ghost-Downloader-3</a></td>
+<td>浏览器扩展可能把认证状态交给桌面端，需审核扩展权限；仅下载有权获取的文件，不把 README 的速度描述当实测结果。</td>
+</tr>
+<tr>
+<td>把获准采集的产品文档整理成可检索的 Markdown 语料。</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/firecrawl/firecrawl">firecrawl&#x2F;firecrawl</a></td>
+<td>本地版某些单页抓取默认可能回退到云端；敏感网址或内容须先检查数据流和云端开关。使用前核对网站条款、隐私和 robots 规则。</td>
+</tr>
+<tr>
+<td>把设计草图做成适合发布在博客或演示文稿里的架构图。</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/cathrynlavery/diagram-design">cathrynlavery&#x2F;diagram-design</a></td>
+<td>模型参与摆放，同一输入未必得到相同布局；生成物不保留为可拖拽的源文件。需要随代码频繁审阅差异时，不宜替代文本图表源。</td>
+</tr>
+<tr>
+<td>从已获授权的播客或访谈中剪出竖屏片段，再人工复查字幕和上下文。</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/zhouxiaoka/autoclip">zhouxiaoka&#x2F;autoclip</a></td>
+<td>云分析、视觉模型和云转写分别可能接收字幕文本、抽取帧和音频；云服务可能计费，直接发布还涉及平台账号授权。</td>
+</tr>
+<tr>
+<td>比较工具时先找到近期常见问题，再回原帖与官方文档逐条核实。</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/mvanhorn/last30days-skill">mvanhorn&#x2F;last30days-skill</a></td>
+<td>互动分不是事实可靠性；各来源不一定都覆盖整整 30 天。默认重排可能使用环境中的凭据并把主题和入选片段送给外部模型。</td>
+</tr>
+<tr>
+<td>为团队已有的制图或媒体应用封装可在测试环境重复执行的操作。</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/HKUDS/CLI-Anything">HKUDS&#x2F;CLI-Anything</a></td>
+<td>不能仅凭接口生成成功就认定覆盖了应用能力；应先审查目录来源、底层命令和写入权限，再用测试数据验证。</td>
+</tr>
+<tr>
+<td>在课程实验中跑通从数据准备到对话模型训练的最小链路。</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/jingyaogong/minimind">jingyaogong&#x2F;minimind</a></td>
+<td>README 的时间和费用说明基于特定硬件、数据与阶段，不能当完整流程的普遍承诺；CPU、MPS 与 CUDA 的速度和兼容性可能不同。</td>
+</tr>
+<tr>
+<td>在提交移动应用前，把隐私声明和权限提示分配给开发与发布负责人逐项复核。</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/mjmirza/app-store-compliance">mjmirza&#x2F;app-store-compliance</a></td>
+<td>静态扫描不覆盖运行时、账号或店面全部信息；没有查到高风险不等于获准上架，实际要求以平台的有效官方规则为准。</td>
+</tr>
+</tbody></table>
+<h2 id="必要说明"><a href="#必要说明" class="headerlink" title="必要说明"></a>必要说明</h2><ul>
+<li>采集截止（北京时间）：2026年11月28日 09:01。</li>
+<li>榜单快照（北京时间）：2026年11月28日 09:01。</li>
+<li>来源与覆盖：<a target="_blank" rel="noopener" href="https://github.com/trending?since=daily">GitHub 官方 Trending daily</a>与官方仓库 API；概览包含本次全部16个入榜项目，仅详细整理前10个。按 stars today 排序，不是全站净增榜，也不是指定历史自然日／周／月统计。</li>
+<li>连续在榜天数统一使用每日官方日榜完整快照，不以本地前十或周／月榜期数计算。缺历史或漏采标未知；已连续观察天数只说明有记录的下限，不冒充完整历史。</li>
+<li>README 功能与性能属于项目方描述；本期未安装、未运行，不代表独立的效果、安全或兼容性验证。</li>
+<li>长 README 按相关章节抽读：elementalsouls&#x2F;Claude-BugHunter、obra&#x2F;superpowers、XiaoYouChR&#x2F;Ghost-Downloader-3、firecrawl&#x2F;firecrawl、cathrynlavery&#x2F;diagram-design、zhouxiaoka&#x2F;autoclip、mvanhorn&#x2F;last30days-skill、HKUDS&#x2F;CLI-Anything、jingyaogong&#x2F;minimind、mjmirza&#x2F;app-store-compliance；具体范围保留本地旁档，未读图片、视频或全部源码。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div class="reading-tools" data-reading-url="/briefs/github-weekly/2026-11-28-daily/" data-reading-title="GitHub 日报｜2026年11月28日">
+      <button type="button" data-reading-save aria-pressed="false">加入稍后阅读</button><button type="button" data-reading-read aria-pressed="false">标记已读</button><a href="/reading/">我的阅读清单</a>
+      <span class="reading-tool-status" role="status" aria-live="polite"></span></div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/briefs/skill-radar/2026-11-27-daily/" rel="next" title="Skill 雷达｜2026年11月27日">
+                  Skill 雷达｜2026年11月27日 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2023 – 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lzh</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="/lib/animejs/anime.min.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark-safe.js"></script>
+
+  <script src="/js/local-search-safe.js"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+<script src="/js/site-experience.js" defer></script>
+<script src="/js/reading-list.js" defer></script>
+
+</body>
+</html>
